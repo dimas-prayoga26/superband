@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -75,7 +75,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                        <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                     </div>
                     <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                     <div class="sidebar-wrap">
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="contact.html" class="chat-btn gsap-magnetic">Let’s Talk with us</a>
+                <a href="contact.html" class="chat-btn gsap-magnetic">Letâ€™s Talk with us</a>
             </div>
         </div>
     </div>
@@ -134,7 +134,7 @@
                             <a href="#" class="remove remove_from_cart_button"><i class="fas fa-times"></i></a>
                             <a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Ripple Crewneck</a>
                             <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">€</span>160.90
+                                <span class="woocommerce-Price-currencySymbol">â‚¬</span>160.90
                             </span>
                             <span class="quantity">Quantity: 1
                             </span>
@@ -143,7 +143,7 @@
                             <a href="#" class="remove remove_from_cart_button"><i class="fas fa-times"></i></a>
                             <a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">Herman Miller</a>
                             <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">€</span>44.50
+                                <span class="woocommerce-Price-currencySymbol">â‚¬</span>44.50
                             </span>
                             <span class="quantity">Quantity: 1
                             </span>
@@ -153,7 +153,7 @@
                     <p class="woocommerce-mini-cart__total total">
                         <strong>TOTAL</strong>
                         <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">€</span>205.40</span>
+                            <span class="woocommerce-Price-currencySymbol">â‚¬</span>205.40</span>
                     </p>
                     <p class="woocommerce-mini-cart__buttons buttons btn-wrap justify-content-between">
                         <a href="cart.html" class="btn style-white wc-forward">
@@ -187,14 +187,14 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.svg" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
                     <li class="menu-item-has-children">
                         <a href="#">Home</a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Digital Agency</a></li>
+                            <li><a href="{{ route('home') }}">Digital Agency</a></li>
                             <li><a href="home-2.html">Creative Agency</a></li>
                             <li><a href="home-3.html">Design Studio</a></li>
                             <li><a href="home-4.html">Digital Marketing</a></li>
@@ -217,7 +217,7 @@
                     <li class="menu-item-has-children">
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
-                            <li><a href="about.html">About Page</a></li>
+                            <li><a href="{{ route('about') }}">About Page</a></li>
                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                 <ul class="sub-menu">
                                     <li><a href="service.html">Service Version 1</a></li>
@@ -314,7 +314,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
@@ -330,7 +330,7 @@
                                         <div class="menu-pages bg-title">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="index.html">
+                                                    <a class="single-menu-page" href="{{ route('home') }}">
                                                         Digital Agency
                                                         <span class="menu-category">Creative, Design</span>
                                                     </a>
@@ -432,7 +432,7 @@
                                             </span>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li><a href="about.html">About Page</a></li>
+                                            <li><a href="{{ route('about') }}">About Page</a></li>
                                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="service.html">Service Version 1</a></li>
@@ -648,7 +648,7 @@
                             <h3 class="widget_title">Links</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html"> About</a></li>
+                                    <li><a href="{{ route('about') }}"> About</a></li>
                                     <li><a href="project.html">Portfolios</a></li>
                                     <li><a href="service.html">Services</a></li>
                                     <li><a href="contact.html">Testimonials</a></li>
@@ -676,7 +676,7 @@
             <div class="copyright-wrap">
                 <div class="row gy-3 justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2026
+                        <p class="copyright-text">Copyright Â© 2026
                             <a href="">Indonesia Superband Competition</a>
                         </p>
 

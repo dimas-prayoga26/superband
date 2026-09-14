@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -75,7 +75,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                        <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                     </div>
                     <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                     <div class="sidebar-wrap">
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="contact.html" class="chat-btn gsap-magnetic">Let’s Talk with us</a>
+                <a href="contact.html" class="chat-btn gsap-magnetic">Letâ€™s Talk with us</a>
             </div>
         </div>
     </div>
@@ -126,7 +126,7 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.svg" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
@@ -136,7 +136,7 @@
                     <li class="menu-item-has-children">
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
-                            <li><a href="about.html">About Page</a></li>
+                            <li><a href="{{ route('about') }}">About Page</a></li>
                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                 <ul class="sub-menu">
                                     <li><a href="service.html">Service Version 1</a></li>
@@ -233,7 +233,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
@@ -249,7 +249,7 @@
                                         <div class="menu-pages bg-title">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="index.html">
+                                                    <a class="single-menu-page" href="{{ route('home') }}">
                                                         Digital Agency
                                                         <span class="menu-category">Creative, Design</span>
                                                     </a>
@@ -351,7 +351,7 @@
                                             </span>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li><a href="about.html">About Page</a></li>
+                                            <li><a href="{{ route('about') }}">About Page</a></li>
                                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="service.html">Service Version 1</a></li>
@@ -450,7 +450,7 @@
             <h2>Welcome to the Audition! Data Berhasil Disimpan.</h2>
             <p class="sec-text mb-30">Tiket awalmu menuju panggung utama sudah kami terima. Terima kasih sudah berani unjuk gigi dan mengirimkan materi terbaikmu.</p>
             <p class="sec-text mb-30">Pastikan nomor WhatsApp yang kamu daftarkan selalu aktif. Tetap latihan dan siapkan dirimu, karena panggilan untuk tahap berikutnya bisa datang kapan saja. See you on stage!</p>
-            <a href="index.html" class="link-btn">
+            <a href="{{ route('home') }}" class="link-btn">
                 <span class="link-effect">
                     <span class="effect-1">back to home</span>
                     <span class="effect-1">back to home</span>

@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Mail\PersonelRegistrationConfirmation;
 use App\Models\Registration;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class RegistrationController extends Controller
 {
-    public function store(Request $request)
+    public function index(): View
+    {
+        return view('register');
+    }
+
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255'],

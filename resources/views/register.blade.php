@@ -392,13 +392,19 @@
                             </div>
                             <div class="col-12 form-group">
                                 <label>Pilih Senjata Andalanmu / Kategori Audisi: *</label>
+                                @php
+                                    $auditionPositions = ['Vocal', 'Gitaris', 'Bassis', 'Keyboardist', 'Drummer'];
+                                    $requestedAuditionPosition = request('audition_position');
+                                    $selectedAuditionPosition = old(
+                                        'audition_position',
+                                        in_array($requestedAuditionPosition, $auditionPositions, true) ? $requestedAuditionPosition : null,
+                                    );
+                                @endphp
                                 <select id="audition-position-select" name="audition_position" class="form-select" required>
-                                    <option value="" disabled @selected(! old('audition_position'))>Pilih satu ya</option>
-                                    <option value="Vocal" @selected(old('audition_position') === 'Vocal')>Vocal</option>
-                                    <option value="Gitaris" @selected(old('audition_position') === 'Gitaris')>Gitaris</option>
-                                    <option value="Bassis" @selected(old('audition_position') === 'Bassis')>Bassis</option>
-                                    <option value="Keyboardist" @selected(old('audition_position') === 'Keyboardist')>Keyboardist</option>
-                                    <option value="Drummer" @selected(old('audition_position') === 'Drummer')>Drummer</option>
+                                    <option value="" disabled @selected(! $selectedAuditionPosition)>Pilih satu ya</option>
+                                    @foreach ($auditionPositions as $auditionPosition)
+                                        <option value="{{ $auditionPosition }}" @selected($selectedAuditionPosition === $auditionPosition)>{{ $auditionPosition }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-12 form-group">
@@ -535,7 +541,7 @@
                             <h3 class="widget_title">Links</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html"> About</a></li>
+                                    <li><a href="{{ route('about') }}"> About</a></li>
                                     <li><a href="project.html">Portfolios</a></li>
                                     <li><a href="service.html">Services</a></li>
                                     <li><a href="contact.html">Testimonials</a></li>

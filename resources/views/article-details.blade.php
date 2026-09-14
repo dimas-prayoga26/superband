@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -75,7 +75,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                        <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                     </div>
                     <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                     <div class="sidebar-wrap">
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="contact.html" class="chat-btn gsap-magnetic">Let’s Talk with us</a>
+                <a href="contact.html" class="chat-btn gsap-magnetic">Letâ€™s Talk with us</a>
             </div>
         </div>
     </div>
@@ -126,14 +126,14 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.svg" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
                     <li class="menu-item-has-children">
                         <a href="#">Home</a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Digital Agency</a></li>
+                            <li><a href="{{ route('home') }}">Digital Agency</a></li>
                             <li><a href="home-2.html">Creative Agency</a></li>
                             <li><a href="home-3.html">Design Studio</a></li>
                             <li><a href="home-4.html">Digital Marketing</a></li>
@@ -156,7 +156,7 @@
                     <li class="menu-item-has-children">
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
-                            <li><a href="about.html">About Page</a></li>
+                            <li><a href="{{ route('about') }}">About Page</a></li>
                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                 <ul class="sub-menu">
                                     <li><a href="service.html">Service Version 1</a></li>
@@ -253,7 +253,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
@@ -269,7 +269,7 @@
                                         <div class="menu-pages bg-title">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="index.html">
+                                                    <a class="single-menu-page" href="{{ route('home') }}">
                                                         Digital Agency
                                                         <span class="menu-category">Creative, Design</span>
                                                     </a>
@@ -371,7 +371,7 @@
                                             </span>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li><a href="about.html">About Page</a></li>
+                                            <li><a href="{{ route('about') }}">About Page</a></li>
                                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="service.html">Service Version 1</a></li>
@@ -468,7 +468,7 @@
         <div class="container-fluid">
             <div class="breadcumb-content">
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="project.html">Porfolio</a></li>
                     <li>Decentralized Platform</li>
                 </ul>
@@ -508,13 +508,13 @@
                 <div class="col-lg-8">
                     <div class="title-area mb-35">
                         <h2 class="sec-title">Decentralized Platform</h2>
-                        <p class="sec-text mt-30">BaseCreate is pleased to announce that it has been commissioned by Leighton Asia reposition its brand. We will help Leighton Asia evolve its brand strategy, and will be responsible updating Leighton Asia’s brand identity, website, and other collaterals.</p>
-                        <p class="sec-text mt-30">For almost 50 years Leighton Asia, one of the region’s largest and most respected construction companies, has been progressively building for a better future by leveraging international expertise with local intelligence. In that time Leighton has delivered some of Asia’s prestigious buildings and transformational infrastructure projects.</p>
+                        <p class="sec-text mt-30">BaseCreate is pleased to announce that it has been commissioned by Leighton Asia reposition its brand. We will help Leighton Asia evolve its brand strategy, and will be responsible updating Leighton Asiaâ€™s brand identity, website, and other collaterals.</p>
+                        <p class="sec-text mt-30">For almost 50 years Leighton Asia, one of the regionâ€™s largest and most respected construction companies, has been progressively building for a better future by leveraging international expertise with local intelligence. In that time Leighton has delivered some of Asiaâ€™s prestigious buildings and transformational infrastructure projects.</p>
                     </div>
                     <h3>Challenge & Solution</h3>
                     <p class="sec-text mb-n1">Future, as it seeks to lead the industry in technological innovation and sustainable building practices to deliver long-lasting value for its clients.</p>
                     <h3 class="mt-35">Final Result</h3>
-                    <p class="sec-text mb-n1">For almost 50 years Leighton Asia, one of the region’s largest and most respected construction companies, has been progressively building for a better future by leveraging international expertise with local intelligence. In that time Leighton has delivered some of Asia’s prestigious buildings and transformational infrastructure projects.</p>
+                    <p class="sec-text mb-n1">For almost 50 years Leighton Asia, one of the regionâ€™s largest and most respected construction companies, has been progressively building for a better future by leveraging international expertise with local intelligence. In that time Leighton has delivered some of Asiaâ€™s prestigious buildings and transformational infrastructure projects.</p>
                 </div>
                 <div class="col-lg-12">
                     <div class="inner__page-nav space-top mt-n1 mb-n1">
@@ -574,7 +574,7 @@
                             <h3 class="widget_title">Links</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html"> About</a></li>
+                                    <li><a href="{{ route('about') }}"> About</a></li>
                                     <li><a href="project.html">Portfolios</a></li>
                                     <li><a href="service.html">Services</a></li>
                                     <li><a href="contact.html">Testimonials</a></li>
@@ -602,7 +602,7 @@
             <div class="copyright-wrap">
                 <div class="row gy-3 justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2025
+                        <p class="copyright-text">Copyright Â© 2025
                             <a href="https://themeforest.net/user/themegenix">ThemeGenix</a>
                         </p>
 

@@ -4,7 +4,7 @@
         <div class="widget footer-widget">
             <div class="widget-about">
                 <div class="footer-logo">
-                    <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                    <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                 </div>
                 <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                 <div class="sidebar-wrap">
@@ -117,14 +117,14 @@ Mobile Menu
     <div class="mobile-menu-area">
         <button class="menu-toggle"><i class="fas fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="index.html"><img src="assets/img/logo.svg" alt="Ovation"></a>
+            <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
         </div>
         <div class="mobile-menu">
             <ul>
                 <li class="menu-item-has-children">
                     <a href="#">Home</a>
                     <ul class="sub-menu">
-                        <li><a href="index.html">Digital Agency</a></li>
+                        <li><a href="{{ route('home') }}">Digital Agency</a></li>
                         <li><a href="home-2.html">Creative Agency</a></li>
                         <li><a href="home-3.html">Design Studio</a></li>
                         <li><a href="home-4.html">Digital Marketing</a></li>
@@ -147,7 +147,7 @@ Mobile Menu
                 <li class="menu-item-has-children">
                     <a href="#">Pages</a>
                     <ul class="sub-menu">
-                        <li><a href="about.html">About Page</a></li>
+                        <li><a href="{{ route('about') }}">About Page</a></li>
                         <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                             <ul class="sub-menu">
                                 <li><a href="service.html">Service Version 1</a></li>
@@ -245,14 +245,14 @@ Header Area
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/img/logo.png" alt="logo" width="100"></a>
+                            <a href="{{ route('home') }}"><img src="assets/img/logo.png" alt="logo" width="100"></a>
                         </div>
                     </div>
                     <div class="col-auto ms-auto">
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
                                 <li>
-                                    <a href="index.html">
+                                    <a href="{{ route('home') }}">
                                         <span class="link-effect">
                                             <span class="effect-1">HOME</span>
                                             <span class="effect-1">HOME</span>
@@ -260,7 +260,7 @@ Header Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html#about">
+                                    <a href="{{ route('home') }}#about">
                                         <span class="link-effect">
                                             <span class="effect-1">ABOUT</span>
                                             <span class="effect-1">ABOUT</span>
@@ -268,7 +268,7 @@ Header Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html#step">
+                                    <a href="{{ route('home') }}#step">
                                         <span class="link-effect">
                                             <span class="effect-1">STEP</span>
                                             <span class="effect-1">STEP</span>
@@ -276,7 +276,7 @@ Header Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html#rundown">
+                                    <a href="{{ route('home') }}#rundown">
                                         <span class="link-effect">
                                             <span class="effect-1">RUNDOWN</span>
                                             <span class="effect-1">RUNDOWN</span>
@@ -284,7 +284,7 @@ Header Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html#judges">
+                                    <a href="{{ route('home') }}#judges">
                                         <span class="link-effect">
                                             <span class="effect-1">JUDGES</span>
                                             <span class="effect-1">JUDGES</span>
@@ -292,7 +292,7 @@ Header Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html#articles">
+                                    <a href="{{ route('home') }}#articles">
                                         <span class="link-effect">
                                             <span class="effect-1">ARTICLES</span>
                                             <span class="effect-1">ARTICLES</span>

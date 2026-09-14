@@ -1,20 +1,21 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'index')->name('home');
-Route::view('/index.html', 'index');
-Route::view('/about', 'about')->name('about');
-Route::view('/about.html', 'about');
-Route::view('/register', 'register')->name('register');
-Route::view('/register.html', 'register');
-Route::post('/register', [RegistrationController::class, 'store'])->name('registrations.store');
-Route::view('/success', 'success')->name('success');
-Route::view('/success.html', 'success');
-Route::view('/voting', 'voting')->name('voting');
-Route::view('/voting.html', 'voting');
-Route::view('/article-details', 'article-details')->name('article-details');
-Route::view('/article-details.html', 'article-details');
-Route::view('/email-registration-preview', 'email-registration-preview')->name('email.preview');
-Route::view('/email-registration-preview.html', 'email-registration-preview');
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/success', 'success')->name('success');
+    Route::get('/voting', 'voting')->name('voting');
+    Route::get('/article-details', 'articleDetails')->name('article-details');
+    Route::get('/email-registration-preview', 'emailRegistrationPreview')->name('email.preview');
+});
+
+Route::resource('register', RegistrationController::class)
+    ->only(['index', 'store'])
+    ->names([
+        'index' => 'register',
+        'store' => 'registrations.store',
+    ]);

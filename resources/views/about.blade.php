@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -75,7 +75,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                        <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                     </div>
                     <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                     <div class="sidebar-wrap">
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="contact.html" class="chat-btn gsap-magnetic">Let’s Talk with us</a>
+                <a href="contact.html" class="chat-btn gsap-magnetic">Letâ€™s Talk with us</a>
             </div>
         </div>
     </div>
@@ -126,14 +126,14 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.svg" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
                     <li class="menu-item-has-children">
                         <a href="#">Home</a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Digital Agency</a></li>
+                            <li><a href="{{ route('home') }}">Digital Agency</a></li>
                             <li><a href="home-2.html">Creative Agency</a></li>
                             <li><a href="home-3.html">Design Studio</a></li>
                             <li><a href="home-4.html">Digital Marketing</a></li>
@@ -156,7 +156,7 @@
                     <li class="menu-item-has-children">
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="about.html">About Page</a></li>
+                            <li class="active"><a href="{{ route('about') }}">About Page</a></li>
                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                 <ul class="sub-menu">
                                     <li><a href="service.html">Service Version 1</a></li>
@@ -253,7 +253,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-auto ms-auto">
@@ -269,7 +269,7 @@
                                         <div class="menu-pages bg-title">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="index.html">
+                                                    <a class="single-menu-page" href="{{ route('home') }}">
                                                         Digital Agency
                                                         <span class="menu-category">Creative, Design</span>
                                                     </a>
@@ -371,7 +371,7 @@
                                             </span>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li class="active"><a href="about.html">About Page</a></li>
+                                            <li class="active"><a href="{{ route('about') }}">About Page</a></li>
                                             <li class="menu-item-has-children"><a href="service.html">Service Page</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="service.html">Service Version 1</a></li>
@@ -525,7 +525,7 @@
                     <h4>We Love What We Do</h4>
                     <p>We are a creative agency working with brands building insightful strategy, creating unique designs and crafting value</p>
                     <h4 class="mt-35">Why Work With Us</h4>
-                    <p class="mb-n1">If you ask our clients what it’s like working with 36, they’ll talk about how much we care about their success. For us, real relationships fuel real success. We love building brands</p>
+                    <p class="mb-n1">If you ask our clients what itâ€™s like working with 36, theyâ€™ll talk about how much we care about their success. For us, real relationships fuel real success. We love building brands</p>
                 </div>
             </div>
 
@@ -543,7 +543,7 @@
                         <li class="single-award-list">
                             <span class="award-year">2017</span>
                             <div class="award-details">
-                                <h4><a href="about.html">New York Design Week</a></h4>
+                                <h4><a href="{{ route('about') }}">New York Design Week</a></h4>
                                 <p>We bring to life the most complex projects, specialize</p>
                             </div>
                             <span class="award-tag">Main developer</span>
@@ -551,7 +551,7 @@
                         <li class="single-award-list">
                             <span class="award-year">2019</span>
                             <div class="award-details">
-                                <h4><a href="about.html">The Blue Design Awards</a></h4>
+                                <h4><a href="{{ route('about') }}">The Blue Design Awards</a></h4>
                                 <p>We bring to life the most complex projects, specialize</p>
                             </div>
                             <span class="award-tag">Animator</span>
@@ -559,7 +559,7 @@
                         <li class="single-award-list">
                             <span class="award-year">2019</span>
                             <div class="award-details">
-                                <h4><a href="about.html">Best Web Flow</a></h4>
+                                <h4><a href="{{ route('about') }}">Best Web Flow</a></h4>
                                 <p>We bring to life the most complex projects, specialize</p>
                             </div>
                             <span class="award-tag">Main developer</span>
@@ -567,7 +567,7 @@
                         <li class="single-award-list">
                             <span class="award-year">2019</span>
                             <div class="award-details">
-                                <h4><a href="about.html">Berlin Interactive Award</a></h4>
+                                <h4><a href="{{ route('about') }}">Berlin Interactive Award</a></h4>
                                 <p>We bring to life the most complex projects, specialize</p>
                             </div>
                             <span class="award-tag">Best innovations</span>
@@ -810,7 +810,7 @@
                             <h3 class="widget_title">Links</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html"> About</a></li>
+                                    <li><a href="{{ route('about') }}"> About</a></li>
                                     <li><a href="project.html">Portfolios</a></li>
                                     <li><a href="service.html">Services</a></li>
                                     <li><a href="contact.html">Testimonials</a></li>
@@ -838,7 +838,7 @@
             <div class="copyright-wrap">
                 <div class="row gy-3 justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2025
+                        <p class="copyright-text">Copyright Â© 2025
                             <a href="https://themeforest.net/user/themegenix">ThemeGenix</a>
                         </p>
 

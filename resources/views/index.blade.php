@@ -75,7 +75,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
+                        <a href="{{ route('home') }}"><img src="assets/img/logo-white.svg" alt="Ovation"></a>
                     </div>
                     <!-- <p class="about-text">We are digital agency that helps businesses develop immersive and engaging</p>
                     <div class="sidebar-wrap">
@@ -126,7 +126,7 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.png" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="assets/img/logo.png" alt="Ovation"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
@@ -182,14 +182,14 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.png" alt="logo" width="100"></a>
+                                <a href="{{ route('home') }}"><img src="assets/img/logo.png" alt="logo" width="100"></a>
                             </div>
                         </div>
                         <div class="col-auto m-lg-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{ route('home') }}">
                                             <span class="link-effect">
                                                 <span class="effect-1">HOME</span>
                                                 <span class="effect-1">HOME</span>
@@ -205,7 +205,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="#step">
                                             <span class="link-effect">
                                                 <span class="effect-1">STEP</span>
                                                 <span class="effect-1">STEP</span>
@@ -213,7 +213,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="#rundown">
                                             <span class="link-effect">
                                                 <span class="effect-1">RUNDOWN</span>
                                                 <span class="effect-1">RUNDOWN</span>
@@ -221,7 +221,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="#judges">
                                             <span class="link-effect">
                                                 <span class="effect-1">JUDGES</span>
                                                 <span class="effect-1">JUDGES</span>
@@ -304,7 +304,7 @@
                     <div class="col-lg-6">
                         <p class="hero-text text-sm-center wow img-custom-anim-right" data-wow-duration="1.5s" data-wow-delay="0.1s">Tunjukkan kebolehanmu sebagai Vocalist, Guitarist, Bassist, Keyboardist, atau Drummer.</p>
                         <div class="btn-group fade_right justify-content-sm-center">
-                            <a href="register.html" class="btn wow img-custom-anim-left" >
+                            <a href="{{ route('register') }}" class="btn wow img-custom-anim-left" >
                                 <span class="link-effect">
                                     <span class="effect-1">DAFTAR SEKARANG</span>
                                     <span class="effect-1">DAFTAR SEKARANG</span>
@@ -370,7 +370,7 @@
                         </h2>
                         <p class="sec-text mt-25">Di sini, kamu nggak perlu repot bawa satu band utuh. Kamu cukup mendaftar secara individu sesuai alat musik andalanmu. Tugasmu cuma satu: pamerkan skill aslimu di video audisi! Setelah itu, bersiaplah digabungkan dengan musisi-musisi muda terbaik lainnya untuk membentuk line-up band paling mematikan tahun ini.</p>
                         <div class="btn-wrap mt-35">
-                            <a href="about.html" class="link-btn">
+                            <a href="{{ route('about') }}" class="link-btn">
                                 <span class="link-effect">
                                     <span class="effect-1">ABOUT THIS EVENT</span>
                                     <span class="effect-1">ABOUT THIS EVENT</span>
@@ -667,7 +667,7 @@
                             </div>
                         </div>
                         <p class="feature-card-text">Tidak sekadar bersuara merdu, kami mencari karakter vokal yang unik, teknik bernyanyi yang stabil, dan stage presence karismatik yang mampu menguasai panggung serta berinteraksi dengan penonton.</p>
-                        <a href="register.html" class="btn d-flex justify-content-center mt-3">
+                        <a href="{{ route('register', ['audition_position' => 'Vocal']) }}" class="btn d-flex justify-content-center mt-3">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -690,7 +690,7 @@
                             </div>
                         </div>
                         <p class="feature-card-text">Mampu menyajikan riff yang tajam dan eksplorasi tone yang tepat. Bukan hanya soal skill solo yang shredding, tapi juga kemampuan membangun harmoni dan dinamika yang menyatu dengan lagu.</p>
-                        <a href="register.html" class="btn d-flex justify-content-center mt-3">
+                        <a href="{{ route('register', ['audition_position' => 'Gitaris']) }}" class="btn d-flex justify-content-center mt-3">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -715,7 +715,7 @@
                             </div>
                         </div>
                         <p class="feature-card-text">Jantung dari groove band. Kami mencari bassis yang mampu memberikan fondasi nada yang solid, bassline yang dinamis, dan kemampuan mengunci ketukan secara sempurna dengan drumer.</p>
-                        <a href="register.html" class="btn d-flex justify-content-center mt-3">
+                        <a href="{{ route('register', ['audition_position' => 'Bassis']) }}" class="btn d-flex justify-content-center mt-3">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -740,7 +740,7 @@
                             </div>
                         </div>
                         <p class="feature-card-text">Pengisi dimensi lagu. Harus memiliki selera aransemen yang luas, pemilihan sound yang kaya (synth, piano, organ), dan insting yang pas kapan harus menonjol atau menjadi pelapis harmoni.</p>
-                        <a href="register.html" class="btn d-flex justify-content-center mt-3">
+                        <a href="{{ route('register', ['audition_position' => 'Keyboardist']) }}" class="btn d-flex justify-content-center mt-3">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -767,7 +767,7 @@
                             </div>
                         </div>
                         <p class="feature-card-text">Motor penggerak dan tulang punggung band. Memiliki penjagaan tempo yang presisi (timekeeping), pukulan yang bertenaga, stamina tinggi, serta transisi fill-in yang kreatif dan tidak berlebihan.</p>
-                        <a href="register.html" class="btn d-flex justify-content-center mt-3">
+                        <a href="{{ route('register', ['audition_position' => 'Drummer']) }}" class="btn d-flex justify-content-center mt-3">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -799,7 +799,7 @@
                         <li class="single-award-list">
                             <span class="award-year">10 Oct</span>
                             <div class="award-details">
-                                <h4><a href="about.html">THE FIRST CHORD</a></h4>
+                                <h4><a href="{{ route('about') }}">THE FIRST CHORD</a></h4>
                                 <p>Pertarungan 10 Band Finalis Memberikan Aksi Terbaiknya</p>
                             </div>
                             <span class="award-tag">-</span>
@@ -807,7 +807,7 @@
                         <li class="single-award-list">
                             <span class="award-year">15 Oct</span>
                             <div class="award-details">
-                                <h4><a href="about.html">THE RISING STAGE</a></h4>
+                                <h4><a href="{{ route('about') }}">THE RISING STAGE</a></h4>
                                 <p>Pertarungan Berlanjut: Aksi 8 Band Finalis Menuju Grand Final</p>
                             </div>
                             <span class="award-tag">-</span>
@@ -815,7 +815,7 @@
                         <li class="single-award-list">
                             <span class="award-year">20 Oct</span>
                             <div class="award-details">
-                                <h4><a href="about.html">THE GRAND FINALE</a></h4>
+                                <h4><a href="{{ route('about') }}">THE GRAND FINALE</a></h4>
                                 <p>Grand Final: Pertarungan 6 Band Menuju Tahta Juara</p>
                             </div>
                             <span class="award-tag">-</span>
@@ -1068,7 +1068,7 @@
                             <h3 class="widget_title">Links</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="{{ route('about') }}">About</a></li>
                                     <li><a href="project.html">Portfolios</a></li>
                                     <li><a href="service.html">Services</a></li>
                                     <li><a href="contact.html">Testimonials</a></li>
@@ -1082,7 +1082,7 @@
                             <h3 class="widget_title">Others</h3>
                             <div class="menu-all-pages-container list-column2">
                                 <ul class="menu">
-                                    <li><a href="about.html"> Featured Project</a></li>
+                                    <li><a href="{{ route('about') }}"> Featured Project</a></li>
                                     <li><a href="project.html">Terms and Conditions</a></li>
                                     <li><a href="service.html">Privacy Policy</a></li>
                                     <li><a href="contact.html">Clients and Partners</a></li>
