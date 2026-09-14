@@ -249,7 +249,7 @@
                                 <li><i class="fas fa-check"></i> Tunjukkan suara aslimu.</li>
                             </ul>
                         </div>
-                        <a href="#registration-form" class="btn audition-position-btn" data-position="Vocal">
+                        <a href="{{ route('register', ['audition_position' => 'Vocal']) }}" class="btn audition-position-btn" data-position="Vocal">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -274,7 +274,7 @@
                                 <li><i class="fas fa-check"></i> No dubbing atau lip-sync jari! Tunjukkan skill aslimu di depan kamera.</li>
                             </ul>
                         </div>
-                        <a href="#registration-form" class="btn audition-position-btn" data-position="Gitaris">
+                        <a href="{{ route('register', ['audition_position' => 'Gitaris']) }}" class="btn audition-position-btn" data-position="Gitaris">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -298,7 +298,7 @@
                                 <li><i class="fas fa-check"></i> Pastikan sound bass kamu terdengar jernih dan menonjol (clear & punchy) agar juri bisa menilai groove dan teknikmu secara maksimal!</li>
                             </ul>
                         </div>
-                        <a href="#registration-form" class="btn audition-position-btn" data-position="Bassis">
+                        <a href="{{ route('register', ['audition_position' => 'Bassis']) }}" class="btn audition-position-btn" data-position="Bassis">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -323,7 +323,7 @@
                                 <li><i class="fas fa-check"></i> No dubbing! Pastikan audio dan visual sinkron untuk menunjukkan skill aslimu.</li>
                             </ul>
                         </div>
-                        <a href="#registration-form" class="btn audition-position-btn" data-position="Keyboardist">
+                        <a href="{{ route('register', ['audition_position' => 'Keyboardist']) }}" class="btn audition-position-btn" data-position="Keyboardist">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -348,7 +348,7 @@
                                 <li><i class="fas fa-check"></i> Pastikan audio ketukan drum kamu terdengar jernih dan dominan agar juri bisa menilai power, tempo, dan teknikmu secara maksimal!</li>
                             </ul>
                         </div>
-                        <a href="#registration-form" class="btn audition-position-btn" data-position="Drummer">
+                        <a href="{{ route('register', ['audition_position' => 'Drummer']) }}" class="btn audition-position-btn" data-position="Drummer">
                             <span class="link-effect">
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
                                 <span class="effect-1">CHOOSE THIS POSITION</span>
@@ -652,6 +652,11 @@
 
                 if (positionSelect && selectedPosition) {
                     positionSelect.value = selectedPosition;
+                }
+
+                if (selectedPosition) {
+                    const registerUrl = new URL(button.href, window.location.origin);
+                    window.history.replaceState(null, '', `${registerUrl.pathname}${registerUrl.search}`);
                 }
 
                 if (registrationForm) {
