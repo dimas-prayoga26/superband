@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/imageRevealHover.css">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=about-lineup-spotlight">
+    <link rel="stylesheet" href="assets/css/style.css?v=about-lineup-photos">
 
 </head>
 
@@ -274,7 +274,7 @@
             <div class="hero-style13">
                 <div class="hero-thumb13-1 wow img-custom-anim-right fade_right" data-wow-duration="1.5s" data-wow-delay="0.1s">
                     <div class="hero-silhouette-stage" aria-hidden="true">
-                        <img class="hero-silhouette-img" src="assets/img/Siluet/Vokalist.svg" alt="" data-hero-silhouette>
+                        <img class="hero-silhouette-img" src="{{ asset('assets/Jember Feed 13.jpg') }}" alt="" data-hero-silhouette>
                     </div>
                 </div>
                 <div class="hero-thumb13-2 wow img-custom-anim-left fade_left" data-wow-duration="1.5s" data-wow-delay="0.1s">
@@ -343,19 +343,19 @@
                     <div class="about-lineup-board wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.1s" aria-label="Band lineup preview">
                         <div class="about-lineup-grid">
                             <figure class="about-lineup-slot slot-vocal">
-                                <img src="assets/img/Siluet/Vokalist.svg" alt="Vocalist">
+                                <img src="{{ asset('assets/Jember Feed 13.jpg') }}" alt="Vocalist">
                             </figure>
                             <figure class="about-lineup-slot slot-guitar">
-                                <img src="assets/img/Siluet/Guitarist.svg" alt="Guitarist">
+                                <img src="{{ asset('assets/Jember Feed 14.jpg') }}" alt="Guitarist">
                             </figure>
                             <figure class="about-lineup-slot slot-bass">
-                                <img src="assets/img/Siluet/Bassist.svg" alt="Bassist">
+                                <img src="{{ asset('assets/Jember Feed 15.jpg') }}" alt="Bassist">
                             </figure>
                             <figure class="about-lineup-slot slot-keys">
-                                <img src="assets/img/Siluet/Keboardist.svg" alt="Keyboardist">
+                                <img src="{{ asset('assets/Jember Feed 17.jpg') }}" alt="Keyboardist">
                             </figure>
                             <figure class="about-lineup-slot slot-drum">
-                                <img src="assets/img/Siluet/Drum.svg" alt="Drummer">
+                                <img src="{{ asset('assets/Jember Feed 16.jpg') }}" alt="Drummer">
                             </figure>
                         </div>
                     </div>
@@ -1165,11 +1165,11 @@
         }
 
         const heroSilhouetteItems = [
-            'assets/img/Siluet/Vokalist.svg',
-            'assets/img/Siluet/Guitarist.svg',
-            'assets/img/Siluet/Bassist.svg',
-            'assets/img/Siluet/Drum.svg',
-            'assets/img/Siluet/Keboardist.svg'
+            '{{ asset('assets/Jember Feed 13.jpg') }}',
+            '{{ asset('assets/Jember Feed 14.jpg') }}',
+            '{{ asset('assets/Jember Feed 15.jpg') }}',
+            '{{ asset('assets/Jember Feed 16.jpg') }}',
+            '{{ asset('assets/Jember Feed 17.jpg') }}'
         ];
         const heroSilhouette = document.querySelector('[data-hero-silhouette]');
         let activeHeroSilhouetteIndex = 0;

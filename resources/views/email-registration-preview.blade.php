@@ -32,19 +32,19 @@
       <td align="center" style="padding:0 14px 32px;">
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:640px; background:#ffffff; border-radius:8px; overflow:hidden; border:1px solid #e3e3e3;">
           <tr>
-            <td align="center" style="background:#e3ff04; padding:30px 34px 26px; text-align:center;">
+            <td align="center" bgcolor="#e3ff04" style="background-color:#e3ff04; background-image:linear-gradient(#e3ff04,#e3ff04); padding:30px 34px 26px; text-align:center;">
               <img src="assets/img/logo.png" width="136" alt="Indonesia Superband Competition" style="display:block; margin:0 auto; border:0; outline:none; text-decoration:none; max-width:136px; height:auto;">
-              <p style="margin:24px 0 0; font-size:12px; line-height:18px; letter-spacing:0; text-transform:uppercase; color:#0a0c00; font-weight:700;">
+              <p style="margin:24px 0 0; font-size:12px; line-height:18px; letter-spacing:0; text-transform:uppercase; color:#0a0c00 !important; -webkit-text-fill-color:#0a0c00; font-weight:700;">
                 Indonesia Superband Competition 2026
               </p>
-              <h1 style="margin:10px 0 0; font-size:30px; line-height:38px; color:#0a0c00; font-weight:800;">
+              <h1 style="margin:10px 0 0; font-size:30px; line-height:38px; color:#0a0c00 !important; -webkit-text-fill-color:#0a0c00; font-weight:800;">
                 Pendaftaranmu sudah kami terima.
               </h1>
             </td>
           </tr>
 
           <tr>
-            <td id="introArea" background="assets/img/Siluet/email-watermark/Guitarist.svg" style="background:#ffffff url('assets/img/Siluet/email-watermark/Guitarist.svg') no-repeat center 58%; background-size:auto 330px; padding:34px 42px 46px;">
+            <td id="introArea" background="assets/img/Siluet/email-watermark/Guitarist.svg?v=2" style="background:#ffffff url('assets/img/Siluet/email-watermark/Guitarist.svg?v=2') no-repeat center 58%; background-size:auto 330px; padding:34px 42px 46px;">
               <p style="margin:0 0 18px; font-size:18px; line-height:30px; color:#202020;">
                 Hai <strong>Raka Pratama</strong>,
               </p>
@@ -103,11 +103,11 @@
   </table>
   <script>
     const roleAssets = {
-      Vokalis: 'assets/img/Siluet/email-watermark/Vokalist.svg',
-      Gitaris: 'assets/img/Siluet/email-watermark/Guitarist.svg',
-      Bassis: 'assets/img/Siluet/email-watermark/Bassist.svg',
-      Keyboardist: 'assets/img/Siluet/email-watermark/Keboardist.svg',
-      Drummer: 'assets/img/Siluet/email-watermark/Drum.svg',
+      Vokalis: 'assets/img/Siluet/email-watermark/Vokalist.svg?v=2',
+      Gitaris: 'assets/img/Siluet/email-watermark/Guitarist.svg?v=2',
+      Bassis: 'assets/img/Siluet/email-watermark/Bassist.svg?v=2',
+      Keyboardist: 'assets/img/Siluet/email-watermark/Keboardist.svg?v=2',
+      Drummer: 'assets/img/Siluet/email-watermark/Drum.svg?v=2',
     };
 
     const rolePreview = document.getElementById('rolePreview');
