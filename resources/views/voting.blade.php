@@ -38,6 +38,30 @@
     <link rel="stylesheet" href="assets/css/imageRevealHover.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .register-header-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+        }
+
+        .register-header-row > .col-auto {
+            width: auto;
+        }
+
+        .register-header-menu {
+            justify-self: center;
+        }
+
+        .register-header-spacer {
+            min-width: 100px;
+        }
+
+        @media (max-width: 991px) {
+            .register-header-row {
+                display: flex;
+            }
+        }
+    </style>
 
 </head>
 
@@ -120,59 +144,6 @@
         </div>
     </div>
 
-    <!--==============================
-    Sidemenu
-    ============================== -->
-    <div class="sidemenu-wrapper d-none d-lg-block ">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><img src="assets/img/icon/close.svg" alt="icon"></button>
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="fas fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Ripple Crewneck</a>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">â‚¬</span>160.90
-                            </span>
-                            <span class="quantity">Quantity: 1
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="fas fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">Herman Miller</a>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">â‚¬</span>44.50
-                            </span>
-                            <span class="quantity">Quantity: 1
-                            </span>
-                        </li>
-
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>TOTAL</strong>
-                        <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">â‚¬</span>205.40</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons btn-wrap justify-content-between">
-                        <a href="cart.html" class="btn style-white wc-forward">
-                            <span class="link-effect">
-                                <span class="effect-1">VIEW CART</span>
-                                <span class="effect-1">VIEW CART</span>
-                            </span>
-                        </a>
-                        <a href="checkout.html" class="btn style2 wc-forward">
-                            <span class="link-effect">
-                                <span class="effect-1">CHECKOUT</span>
-                                <span class="effect-1">CHECKOUT</span>
-                            </span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="popup-search-box d-none d-lg-block">
         <button class="searchClose"><i class="fal fa-times"></i></button>
         <form action="#">
@@ -187,84 +158,16 @@
         <div class="mobile-menu-area">
             <button class="menu-toggle"><i class="fas fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="Ovation"></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Indonesia Superband Competition" width="100"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
-                    <li class="menu-item-has-children">
-                        <a href="#">Home</a>
-                        <ul class="sub-menu">
-                            <li><a href="{{ route('home') }}">Digital Agency</a></li>
-                            <li><a href="home-2.html">Creative Agency</a></li>
-                            <li><a href="home-3.html">Design Studio</a></li>
-                            <li><a href="home-4.html">Digital Marketing</a></li>
-                            <li><a href="home-5.html">Modern Agency</a></li>
-                            <li><a href="home-6.html">Creative Studio</a></li>
-                            <li><a href="home-7.html">Startup Agency</a></li>
-                            <li><a href="home-8.html">Personal Portfolio</a></li>
-                            <li><a href="home-9.html">Portfolio Showcase</a></li>
-                            <li><a href="home-10.html">Interactive Link</a></li>
-                            <li><a href="home-11.html">Showcase Carousel</a></li>
-                            <li><a href="home-12.html">Fullscreen Slideshow</a></li>
-                            <li><a href="home-13.html">Branding Agency</a></li>
-                            <li><a href="home-14.html">Marketing Agency</a></li>
-                            <li><a href="home-15.html">Web Studio</a></li>
-                            <li><a href="home-16.html">Agency Classic</a></li>
-                            <li><a href="home-17.html">AI Startup</a></li>
-                            <li><a href="home-18.html">Agency Shop</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="{{ route('about') }}">About Page</a></li>
-                            <li class="menu-item-has-children"><a href="service.html">Service Page</a>
-                                <ul class="sub-menu">
-                                    <li><a href="service.html">Service Version 1</a></li>
-                                    <li><a href="service-2.html">Service Version 2</a></li>
-                                    <li><a href="service-3.html">Service Version 3</a></li>
-                                    <li><a href="service-details.html">Service Details Page</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="service-details.html">Service Details</a></li>
-                            <li><a href="team.html">Team Page</a></li>
-                            <li><a href="team-details.html">Team Details Page</a></li>
-                            <li><a href="pricing.html">Pricing Page</a></li>
-                            <li class="menu-item-has-children"><a href="shop.html">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop Page</a></li>
-                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li class="active"><a href="checkout.html">Checkout</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="faq.html">FAQ Page</a></li>
-                            <li><a href="error.html">Error Page</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Portfolio</a>
-                        <ul class="sub-menu">
-                            <li><a href="project.html">Portfolio Masonary</a></li>
-                            <li><a href="project-2.html">Portfolio Pinterest</a></li>
-                            <li><a href="project-3.html">Portfolio Gallery</a></li>
-                            <li><a href="project-4.html">Portfolio Full Width</a></li>
-                            <li><a href="project-5.html">Portfolio Slider</a></li>
-                            <li><a href="project-6.html">Portfolio Interactive</a></li>
-                            <li><a href="project-details.html">Portfolio Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog.html">Blog Standard</a></li>
-                            <li><a href="blog-2.html">Blog 2 Column</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
+                    <li><a href="{{ route('home') }}">HOME</a></li>
+                    <li><a href="{{ route('home') }}#about">ABOUT</a></li>
+                    <li><a href="{{ route('home') }}#step">STEP</a></li>
+                    <li><a href="{{ route('home') }}#rundown">RUNDOWN</a></li>
+                    <li><a href="{{ route('home') }}#judges">JUDGES</a></li>
+                    <li><a href="{{ route('home') }}#articles">ARTICLES</a></li>
                 </ul>
             </div>
             <div class="sidebar-wrap">
@@ -306,193 +209,65 @@
     <!--==============================
 	Header Area
     ==============================-->
-    <header class="nav-header header-layout3 bg-white">
+    <header class="nav-header header-layout2 style2 bg-white">
         <div class="sticky-wrapper">
             <!-- Main Menu Area -->
             <div class="menu-area">
                 <div class="container-fluid">
-                    <div class="row align-items-center justify-content-between">
+                    <div class="row align-items-center justify-content-between register-header-row">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="{{ route('home') }}"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Indonesia Superband Competition" width="100"></a>
                             </div>
                         </div>
-                        <div class="col-auto ms-auto">
+                        <div class="col-auto m-lg-auto register-header-menu">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
-                                    <li class="menu-item-has-children mega-menu-wrap">
-                                        <a href="#">
+                                    <li>
+                                        <a href="{{ route('home') }}">
                                             <span class="link-effect">
                                                 <span class="effect-1">HOME</span>
                                                 <span class="effect-1">HOME</span>
                                             </span>
                                         </a>
-                                        <div class="menu-pages bg-title">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="{{ route('home') }}">
-                                                        Digital Agency
-                                                        <span class="menu-category">Creative, Design</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-2.html">
-                                                        Creative Agency
-                                                        <span class="menu-category">Digital, Studio</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-3.html">
-                                                        Design Studio
-                                                        <span class="menu-category">Design, Agency</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-4.html">
-                                                        Digital Marketing
-                                                        <span class="menu-category">Marketing, Corporate</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-5.html">
-                                                        Modern Agency
-                                                        <span class="menu-category">Agency, Corporate</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-6.html">
-                                                        Creative Studio
-                                                        <span class="menu-category">Digital, Creative</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="home-7.html">
-                                                        Startup Agency
-                                                        <span class="menu-category">Corporate, Startup</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-8.html">
-                                                        Personal Portfolio
-                                                        <span class="menu-category">Project, Showcase</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-9.html">
-                                                        Portfolio Showcase <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Creative, Portfolio</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-10.html">
-                                                        Interactive Link <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Project, Design</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-11.html">
-                                                        Showcase Carousal  <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Portfolio, Work</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-12.html">
-                                                        Full Screen Slideshow  <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Slideshow, Project</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <a class="single-menu-page" href="home-13.html">
-                                                        Branding Agency <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Branding, Corporate</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-14.html">
-                                                        Marketing Agency <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Strategy, Marketing</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-15.html">
-                                                        Web Studio <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Development, Website</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-16.html">
-                                                        Agency Classic <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Digital, Startup</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-17.html">
-                                                        AI Startup <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Solutions, Intelligence</span>
-                                                    </a>
-                                                    <a class="single-menu-page" href="home-18.html">
-                                                        Shop Home <span class="menu-tag">New</span>
-                                                        <span class="menu-category">Shop, Store</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <div class="menu-banner-wrap">
-                                                        <img src="assets/img/normal/menu-banner.jpg" alt="img">
-                                                        <div class="menu-banner-content-wrap">
-                                                            <h4 class="text-white">Start Your Creative Website Journey Today</h4>
-                                                            <a href="https://themeforest.net/item/frisk-creative-agency-portfolio-template/49695408?s_rank=10" class="btn bg-theme text-title">
-                                                                <span class="link-effect">
-                                                                    <span class="effect-1">Buy now</span>
-                                                                    <span class="effect-1">Buy now</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">
-                                            <span class="link-effect">
-                                                <span class="effect-1">PAGES</span>
-                                                <span class="effect-1">PAGES</span>
-                                            </span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{ route('about') }}">About Page</a></li>
-                                            <li class="menu-item-has-children"><a href="service.html">Service Page</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="service.html">Service Version 1</a></li>
-                                                    <li><a href="service-2.html">Service Version 2</a></li>
-                                                    <li><a href="service-3.html">Service Version 3</a></li>
-                                                    <li><a href="service-details.html">Service Details Page</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="team.html">Team Page</a>
-                                            </li>
-                                            <li><a href="team-details.html">Team Details Page</a></li>
-                                            <li><a href="pricing.html">Pricing Page</a></li>
-                                            <li class="menu-item-has-children active"><a href="shop.html">Shop</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="shop.html">Shop Page</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Cart Page</a></li>
-                                                    <li class="active"><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="faq.html">FAQ Page</a></li>
-                                            <li><a href="error.html">Error Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">
-                                            <span class="link-effect">
-                                                <span class="effect-1">PORTFOLIO</span>
-                                                <span class="effect-1">PORTFOLIO</span>
-                                            </span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="project.html">Portfolio Masonary</a></li>
-                                            <li><a href="project-2.html">Portfolio Pinterest</a></li>
-                                            <li><a href="project-3.html">Portfolio Gallery</a></li>
-                                            <li><a href="project-4.html">Portfolio Full Width</a></li>
-                                            <li><a href="project-5.html">Portfolio Slider</a></li>
-                                            <li><a href="project-6.html">Portfolio Interactive</a></li>
-                                            <li><a href="project-details.html">Portfolio Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">
-                                            <span class="link-effect">
-                                                <span class="effect-1">BLOG</span>
-                                                <span class="effect-1">BLOG</span>
-                                            </span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog Standard</a></li>
-                                            <li><a href="blog-2.html">Blog 2 Column</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="{{ route('home') }}#about">
                                             <span class="link-effect">
-                                                <span class="effect-1">CONTACT</span>
-                                                <span class="effect-1">CONTACT</span>
+                                                <span class="effect-1">ABOUT</span>
+                                                <span class="effect-1">ABOUT</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('home') }}#step">
+                                            <span class="link-effect">
+                                                <span class="effect-1">STEP</span>
+                                                <span class="effect-1">STEP</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('home') }}#rundown">
+                                            <span class="link-effect">
+                                                <span class="effect-1">RUNDOWN</span>
+                                                <span class="effect-1">RUNDOWN</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('home') }}#judges">
+                                            <span class="link-effect">
+                                                <span class="effect-1">JUDGES</span>
+                                                <span class="effect-1">JUDGES</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('home') }}#articles">
+                                            <span class="link-effect">
+                                                <span class="effect-1">ARTICLES</span>
+                                                <span class="effect-1">ARTICLES</span>
                                             </span>
                                         </a>
                                     </li>
@@ -506,22 +281,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <div class="header-button">
-                                <button type="button" class="header-cart sideMenuToggler" href="cart.html"><img src="assets/img/icon/shopping-cart.svg" alt="img">
-                                    <span class="link-effect">
-                                        <span class="effect-1">CART <span>(02)</span></span>
-                                        <span class="effect-1">CART <span>(02)</span></span>
-                                    </span>
-                                </button>
-                                <a href="project.html" class="btn">
-                                    <span class="link-effect">
-                                        <span class="effect-1">WORKS WITH US</span>
-                                        <span class="effect-1">WORKS WITH US</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
+                        <div class="col-auto d-none d-lg-block register-header-spacer" aria-hidden="true"></div>
                     </div>
                 </div>
             </div>
@@ -531,7 +291,7 @@
     <!--==============================
     Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg1-92.jpg">
+    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/Jember Feed 18.png') }}">
         <div class="container">
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Vote Now</h1>
