@@ -340,8 +340,10 @@
         min-height: 220px;
         background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
         img {
-            height: 92%;
-            width: 42%;
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+            object-position: center center;
         }
     }
     &.slot-guitar,

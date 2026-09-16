@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/logo.png?v=browser-tab-logo">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/img/logo.png?v=browser-tab-logo">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/imageRevealHover.css">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=about-lineup-photos">
+    <link rel="stylesheet" href="assets/css/style.css?v=anchor-offset-1">
 
 </head>
 
@@ -131,7 +131,22 @@
             <div class="mobile-menu">
                 <ul>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="{{ route('home') }}">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="#step">STEP</a>
+                    </li>
+                    <li>
+                        <a href="#rundown">RUNDOWN</a>
+                    </li>
+                    <li>
+                        <a href="#judges">JUDGES</a>
+                    </li>
+                    <li>
+                        <a href="#articles">ARTICLES</a>
                     </li>
                 </ul>
             </div>
@@ -229,7 +244,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="#articles">
                                             <span class="link-effect">
                                                 <span class="effect-1">ARTICLES</span>
                                                 <span class="effect-1">ARTICLES</span>
@@ -274,7 +289,7 @@
             <div class="hero-style13">
                 <div class="hero-thumb13-1 wow img-custom-anim-right fade_right" data-wow-duration="1.5s" data-wow-delay="0.1s">
                     <div class="hero-silhouette-stage" aria-hidden="true">
-                        <img class="hero-silhouette-img" src="{{ asset('assets/Jember Feed 13.jpg') }}" alt="" data-hero-silhouette>
+                        <img class="hero-silhouette-img" src="{{ asset('assets/img/siluet/Vokalist.svg') }}" alt="" data-hero-silhouette>
                     </div>
                 </div>
                 <div class="hero-thumb13-2 wow img-custom-anim-left fade_left" data-wow-duration="1.5s" data-wow-delay="0.1s">
@@ -449,7 +464,7 @@
     <!--==============================
     Feature Area
     ==============================-->
-    <div class="feature-area-1 bg-black space">
+    <div id="step" class="feature-area-1 bg-black space">
         <div class="container">
             <div class="title-area text-center">
                 <h2 class="sec-title text-smoke">Five Step Process</h2>
@@ -782,7 +797,7 @@
         <!--==============================
     Award Area
     ==============================-->
-    <div class="award-area-1 space-bottom overflow-hidden">
+    <div id="rundown" class="award-area-1 space-bottom overflow-hidden">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -829,7 +844,7 @@
         <!--==============================
     Team Area
     ==============================-->
-    <div class="team-area-1 space overflow-hidden">
+    <div id="judges" class="team-area-1 space overflow-hidden">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -938,7 +953,7 @@
     <!--==============================
     Blog Area
     ==============================-->
-    <section class="blog-area space">
+    <section id="articles" class="blog-area space">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-7 col-xl-6 col-lg-8">
@@ -1165,11 +1180,11 @@
         }
 
         const heroSilhouetteItems = [
-            '{{ asset('assets/Jember Feed 13.jpg') }}',
-            '{{ asset('assets/Jember Feed 14.jpg') }}',
-            '{{ asset('assets/Jember Feed 15.jpg') }}',
-            '{{ asset('assets/Jember Feed 16.jpg') }}',
-            '{{ asset('assets/Jember Feed 17.jpg') }}'
+            '{{ asset('assets/img/siluet/Vokalist.svg') }}',
+            '{{ asset('assets/img/siluet/Guitarist.svg') }}',
+            '{{ asset('assets/img/siluet/Bassist.svg') }}',
+            '{{ asset('assets/img/siluet/Keboardist.svg') }}',
+            '{{ asset('assets/img/siluet/Drum.svg') }}'
         ];
         const heroSilhouette = document.querySelector('[data-hero-silhouette]');
         let activeHeroSilhouetteIndex = 0;

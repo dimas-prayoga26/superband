@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/logo.png?v=browser-tab-logo">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/img/logo.png?v=browser-tab-logo">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -117,6 +117,68 @@
                 white-space: normal;
             }
         }
+
+        @media (min-width: 992px) {
+            .register-header-row {
+                display: grid;
+                grid-template-columns: 120px minmax(0, 1fr) 120px;
+            }
+
+            .register-header-row > .col-auto {
+                width: auto;
+                max-width: none;
+            }
+
+            .register-header-menu {
+                justify-self: center;
+                margin: 0 !important;
+            }
+
+            .register-header-spacer {
+                width: 120px;
+                height: 1px;
+            }
+        }
+
+        .register-breadcumb {
+            aspect-ratio: 1408 / 576;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+        }
+
+        .register-breadcumb .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .register-breadcumb .breadcumb-content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .register-breadcumb .breadcumb-title {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .register-breadcumb {
+                aspect-ratio: auto;
+                min-height: clamp(210px, 52vw, 250px);
+                background-position: center center;
+                background-size: auto 100% !important;
+            }
+
+            .register-breadcumb .breadcumb-title {
+                font-size: clamp(30px, 9vw, 40px);
+            }
+        }
     </style>
 
 </head>
@@ -154,7 +216,7 @@
     <!--==============================
     Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg1-9.jpg">
+    <div class="breadcumb-wrapper register-breadcumb" data-bg-src="{{ asset('assets/Jember%20Feed%2019.png') }}">
         <div class="container">
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Register</h1>
@@ -379,8 +441,8 @@
                                 <input type="text" name="full_name" class="form-control" value="{{ old('full_name') }}" placeholder="" required>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label>Nama Panggilan / Stage Name: <br> (Biar panitia dan juri gampang manggil kamu)</label>
-                                <input type="text" name="stage_name" class="form-control" value="{{ old('stage_name') }}" placeholder="">
+                                <label>Nama Panggilan / Stage Name: * <br> (Biar panitia dan juri gampang manggil kamu)</label>
+                                <input type="text" name="stage_name" class="form-control" value="{{ old('stage_name') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Asal Sekolah: <br> (Wajib SMA/SMK/MA sederajat di wilayah Jember, ya!)</label>
@@ -388,7 +450,7 @@
                             </div>
                             <div class="col-12 form-group">
                                 <label>Kelas:</label>
-                                <input type="number" name="grade" class="form-control" value="{{ old('grade') }}" placeholder="kelas 10, 11, atau 12" min="10" max="12" required>
+                                <input type="text" name="grade" class="form-control" value="{{ old('grade') }}" placeholder="kelas 10, 11, atau 12" inputmode="numeric" maxlength="2" pattern="10|11|12" data-digits-only data-max-digits="2" required>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Pilih Senjata Andalanmu / Kategori Audisi: *</label>
@@ -409,19 +471,19 @@
                             </div>
                             <div class="col-12 form-group">
                                 <label>Nomor WhatsApp Super Aktif: <br> (Penting banget buat masuk grup koordinasi dan info lolos audisi)</label>
-                                <input type="text" name="whatsapp" class="form-control" value="{{ old('whatsapp') }}" placeholder="" required>
+                                <input type="tel" name="whatsapp" class="form-control" value="{{ old('whatsapp') }}" placeholder="" inputmode="numeric" maxlength="13" pattern="[0-9]{1,13}" data-digits-only data-max-digits="13" required>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Email Aktif: <br> (Untuk konfirmasi pendaftaran dan info resmi dari panitia)</label>
                                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Link Akun Instagram : <br> (Jangan di-private! Siapa tahu kita repost aksi kerenmu)</label>
-                                <input type="url" name="instagram_url" class="form-control" value="{{ old('instagram_url') }}" placeholder="">
+                                <label>Link Akun Instagram : * <br> (Jangan di-private! Siapa tahu kita repost aksi kerenmu)</label>
+                                <input type="url" name="instagram_url" class="form-control" value="{{ old('instagram_url') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Link Akun TikTok: <br> (Jangan di-private! Siapa tahu kita repost aksi kerenmu)</label>
-                                <input type="url" name="tiktok_url" class="form-control" value="{{ old('tiktok_url') }}" placeholder="">
+                                <label>Link Akun TikTok: * <br> (Jangan di-private! Siapa tahu kita repost aksi kerenmu)</label>
+                                <input type="url" name="tiktok_url" class="form-control" value="{{ old('tiktok_url') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
                                 <label class="mb-3">Pilih Genre Lagu Wajib *</label>
@@ -451,7 +513,7 @@
                                 <input type="url" name="audition_video_url" class="form-control" value="{{ old('audition_video_url') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Upload Foto Kartu Pelajar * <br> (Sebagai bukti sah kalau kamu beneran pelajar aktif di Jember. Format foto/PDF maksimal 10MB)</label>
+                                <label>Upload Foto Kartu Pelajar * <br> (Sebagai bukti sah kalau kamu beneran pelajar aktif di Jember. Format foto/PDF maksimal 5MB)</label>
                                 <input type="file" name="student_card" class="form-control" placeholder="" accept="image/*,application/pdf" required>
                             </div>
                             <div class="col-12 form-group">
@@ -642,6 +704,15 @@
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
     <script>
+        document.querySelectorAll('[data-digits-only]').forEach((input) => {
+            const maxDigits = Number.parseInt(input.dataset.maxDigits, 10);
+
+            input.addEventListener('input', () => {
+                const digits = input.value.replace(/\D/g, '');
+                input.value = Number.isFinite(maxDigits) ? digits.slice(0, maxDigits) : digits;
+            });
+        });
+
         document.querySelectorAll('.audition-position-btn').forEach((button) => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();

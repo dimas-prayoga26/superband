@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -21,8 +23,14 @@ class PageController extends Controller
         return view('success');
     }
 
-    public function voting(): View
+    public function voting(Request $request): View|RedirectResponse
     {
+        if (! $request->user()) {
+            return redirect()->route('voting.login');
+        }
+
+        abort_unless($request->user()->can('access voting'), 403);
+
         return view('voting');
     }
 

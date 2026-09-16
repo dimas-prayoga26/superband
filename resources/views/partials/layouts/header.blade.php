@@ -121,79 +121,23 @@ Mobile Menu
         </div>
         <div class="mobile-menu">
             <ul>
-                <li class="menu-item-has-children">
-                    <a href="#">Home</a>
-                    <ul class="sub-menu">
-                        <li><a href="{{ route('home') }}">Digital Agency</a></li>
-                        <li><a href="home-2.html">Creative Agency</a></li>
-                        <li><a href="home-3.html">Design Studio</a></li>
-                        <li><a href="home-4.html">Digital Marketing</a></li>
-                        <li><a href="home-5.html">Modern Agency</a></li>
-                        <li><a href="home-6.html">Creative Studio</a></li>
-                        <li><a href="home-7.html">Startup Agency</a></li>
-                        <li><a href="home-8.html">Personal Portfolio</a></li>
-                        <li><a href="home-9.html">Portfolio Showcase</a></li>
-                        <li><a href="home-10.html">Interactive Link</a></li>
-                        <li><a href="home-11.html">Showcase Carousel</a></li>
-                        <li><a href="home-12.html">Fullscreen Slideshow</a></li>
-                        <li><a href="home-13.html">Branding Agency</a></li>
-                        <li><a href="home-14.html">Marketing Agency</a></li>
-                        <li><a href="home-15.html">Web Studio</a></li>
-                        <li><a href="home-16.html">Agency Classic</a></li>
-                        <li><a href="home-17.html">AI Startup</a></li>
-                        <li><a href="home-18.html">Agency Shop</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="{{ route('about') }}">About Page</a></li>
-                        <li class="menu-item-has-children"><a href="service.html">Service Page</a>
-                            <ul class="sub-menu">
-                                <li><a href="service.html">Service Version 1</a></li>
-                                <li><a href="service-2.html">Service Version 2</a></li>
-                                <li><a href="service-3.html">Service Version 3</a></li>
-                                <li><a href="service-details.html">Service Details Page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="service-details.html">Service Details</a></li>
-                        <li><a href="team.html">Team Page</a></li>
-                        <li><a href="team-details.html">Team Details Page</a></li>
-                        <li><a href="pricing.html">Pricing Page</a></li>
-                        <li class="menu-item-has-children"><a href="shop.html">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="shop.html">Shop Page</a></li>
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li class="active"><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="faq.html">FAQ Page</a></li>
-                        <li><a href="error.html">Error Page</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Portfolio</a>
-                    <ul class="sub-menu">
-                        <li><a href="project.html">Portfolio Masonary</a></li>
-                        <li><a href="project-2.html">Portfolio Pinterest</a></li>
-                        <li><a href="project-3.html">Portfolio Gallery</a></li>
-                        <li><a href="project-4.html">Portfolio Full Width</a></li>
-                        <li><a href="project-5.html">Portfolio Slider</a></li>
-                        <li><a href="project-6.html">Portfolio Interactive</a></li>
-                        <li><a href="project-details.html">Portfolio Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog.html">Blog Standard</a></li>
-                        <li><a href="blog-2.html">Blog 2 Column</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
+                <li>
+                    <a href="{{ route('home') }}">HOME</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="{{ route('home') }}#about">ABOUT</a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#step">STEP</a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#rundown">RUNDOWN</a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#judges">JUDGES</a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#articles">ARTICLES</a>
                 </li>
             </ul>
         </div>
@@ -237,18 +181,18 @@ Mobile Menu
 <!--==============================
 Header Area
 ==============================-->
-<header class="nav-header header-layout3 bg-white">
+<header class="nav-header header-layout2 style2 bg-white">
     <div class="sticky-wrapper">
         <!-- Main Menu Area -->
         <div class="menu-area">
             <div class="container-fluid">
-                <div class="row align-items-center justify-content-between">
+                <div class="row align-items-center justify-content-between register-header-row">
                     <div class="col-auto">
                         <div class="header-logo">
                             <a href="{{ route('home') }}"><img src="assets/img/logo.png" alt="logo" width="100"></a>
                         </div>
                     </div>
-                    <div class="col-auto ms-auto">
+                    <div class="col-auto m-lg-auto register-header-menu">
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
                                 <li>
@@ -309,22 +253,7 @@ Header Area
                             </button>
                         </div>
                     </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <div class="header-button">
-                            <button type="button" class="header-cart sideMenuToggler" href="cart.html"><img src="assets/img/icon/shopping-cart.svg" alt="img">
-                                <span class="link-effect">
-                                    <span class="effect-1">CART <span>(02)</span></span>
-                                    <span class="effect-1">CART <span>(02)</span></span>
-                                </span>
-                            </button>
-                            <a href="project.html" class="btn">
-                                <span class="link-effect">
-                                    <span class="effect-1">WORKS WITH US</span>
-                                    <span class="effect-1">WORKS WITH US</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+                    <div class="col-auto d-none d-lg-block register-header-spacer" aria-hidden="true"></div>
                 </div>
             </div>
         </div>

@@ -28,6 +28,13 @@
   padding-bottom: $space-extra2;
 }
 
+#about,
+#step,
+#rundown,
+#judges,
+#articles {
+  scroll-margin-top: 150px;
+}
 
 @include md {
   .space,
@@ -69,4 +76,11 @@
   .pt-105 {
     padding-top: 65px;
 }
+  #about,
+  #step,
+  #rundown,
+  #judges,
+  #articles {
+    scroll-margin-top: 115px;
+  }
 }

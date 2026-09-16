@@ -7201,22 +7201,23 @@ ul.wp-block-latest-posts li:last-child {
 }
 .hero-style13 .hero-silhouette-img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 1;
-  transform: scale(1);
+  left: 50%;
+  bottom: -9%;
+  width: 82%;
+  height: 86%;
+  max-width: 82%;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 0.72;
+  transform: translateX(-50%);
   transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 2;
   pointer-events: none;
 }
 .hero-style13 .hero-silhouette-img.is-switching {
   opacity: 0;
-  transform: scale(0.96);
+  transform: translateX(-50%) scale(0.96);
 }
 @media (max-width: 1199px) {
   .hero-style13 .hero-thumb13-1 {
@@ -8951,6 +8952,8 @@ ul.wp-block-latest-posts li:last-child {
 .about-lineup-slot.slot-vocal img {
   height: 100%;
   width: 100%;
+  object-fit: fill;
+  object-position: center center;
 }
 
 .about-lineup-slot.slot-guitar,
@@ -11548,6 +11551,36 @@ blockquote p {
   color: #273f96;
   overflow: visible;
   filter: drop-shadow(0 8px 12px rgba(39, 63, 150, 0.18));
+  transform-origin: 50% 80%;
+  animation: featureNoteFloat 2.8s ease-in-out infinite;
+}
+.feature-card.style3 .feature-note-icon.note-icon-2 {
+  animation-delay: 0.25s;
+}
+.feature-card.style3 .feature-note-icon.note-icon-3 {
+  animation-delay: 0.5s;
+}
+.feature-card.style3 .feature-note-icon.note-icon-4 {
+  animation-delay: 0.75s;
+}
+.feature-card.style3 .feature-note-icon.note-icon-5 {
+  animation-delay: 1s;
+}
+@keyframes featureNoteFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translateY(-8px) rotate(-5deg) scale(1.04);
+  }
+  60% {
+    transform: translateY(3px) rotate(4deg) scale(0.98);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-card.style3 .feature-note-icon {
+    animation: none;
+  }
 }
 .feature-card.style3 .feature-card-title {
   margin-bottom: 0;
@@ -15447,6 +15480,14 @@ blockquote p {
   padding-bottom: calc(var(--section-space) - 40px);
 }
 
+#about,
+#step,
+#rundown,
+#judges,
+#articles {
+  scroll-margin-top: 150px;
+}
+
 /* Medium devices */
 @media (max-width: 991px) {
   .space,
@@ -15481,5 +15522,12 @@ blockquote p {
   }
   .pt-105 {
     padding-top: 65px;
+  }
+  #about,
+  #step,
+  #rundown,
+  #judges,
+  #articles {
+    scroll-margin-top: 115px;
   }
 }

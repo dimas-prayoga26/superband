@@ -158,6 +158,37 @@
         color: #273f96;
         overflow: visible;
         filter: drop-shadow(0 8px 12px rgba(39, 63, 150, 0.18));
+        transform-origin: 50% 80%;
+        animation: featureNoteFloat 2.8s ease-in-out infinite;
+        &.note-icon-2 {
+            animation-delay: 0.25s;
+        }
+        &.note-icon-3 {
+            animation-delay: 0.5s;
+        }
+        &.note-icon-4 {
+            animation-delay: 0.75s;
+        }
+        &.note-icon-5 {
+            animation-delay: 1s;
+        }
+    }
+    @keyframes featureNoteFloat {
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg) scale(1);
+        }
+        30% {
+            transform: translateY(-8px) rotate(-5deg) scale(1.04);
+        }
+        60% {
+            transform: translateY(3px) rotate(4deg) scale(0.98);
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .feature-note-icon {
+            animation: none;
+        }
     }
     .feature-card-title {
         margin-bottom: 0;
