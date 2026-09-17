@@ -427,10 +427,15 @@
         <div class="container">
             @if ($errors->any())
                 <div class="alert alert-danger mb-30">
-                    <strong>Data belum lengkap.</strong> Cek lagi form pendaftaranmu, ya.
+                    <strong>Data belum lengkap.</strong> Cek bagian berikut:
+                    <ul class="mb-0 mt-2 ps-3">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
-            <form id="registration-submit-form" action="{{ route('registrations.store') }}" method="POST" enctype="multipart/form-data" class="woocommerce-checkout">
+            <form id="registration-submit-form" action="{{ route('registrations.store') }}" method="POST" enctype="multipart/form-data" class="woocommerce-checkout" novalidate>
                 @csrf
                 <div class="row gx-60 gy-60">
                     <div class="col-lg-12">
