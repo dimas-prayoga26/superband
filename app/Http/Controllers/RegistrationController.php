@@ -36,11 +36,17 @@ class RegistrationController extends Controller
             'required_song_genre' => ['required', Rule::in(['Pop', 'Pop Folk', 'Rock'])],
             'free_song_title' => ['required', 'string', 'max:255'],
             'audition_video_url' => ['required', 'url:http,https', 'max:255'],
-            'student_card' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:5120'],
-            'photo' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'student_card' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:5119'],
+            'photo' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5119'],
             'commitments' => ['required', 'array', 'size:3'],
             'commitments.*' => ['required', Rule::in(['live_video', 'full_commitment', 'judge_decision'])],
             'cf-turnstile-response' => ['required', 'string'],
+        ], [
+            'student_card.max' => 'Ukuran foto kartu pelajar 5MB atau lebih, silakan unggah file yang lebih kecil.',
+            'student_card.mimes' => 'Foto kartu pelajar harus berupa JPG, JPEG, PNG, WEBP, atau PDF.',
+            'photo.max' => 'Ukuran foto 5MB atau lebih, silakan unggah file yang lebih kecil.',
+            'photo.image' => 'File foto harus berupa gambar.',
+            'photo.mimes' => 'Foto harus berupa JPG, JPEG, PNG, atau WEBP.',
         ]);
 
         $this->verifyTurnstile($request);

@@ -430,7 +430,7 @@
                     <strong>Data belum lengkap.</strong> Cek lagi form pendaftaranmu, ya.
                 </div>
             @endif
-            <form action="{{ route('registrations.store') }}" method="POST" enctype="multipart/form-data" class="woocommerce-checkout">
+            <form id="registration-submit-form" action="{{ route('registrations.store') }}" method="POST" enctype="multipart/form-data" class="woocommerce-checkout">
                 @csrf
                 <div class="row gx-60 gy-60">
                     <div class="col-lg-12">
@@ -514,11 +514,13 @@
                             </div>
                             <div class="col-12 form-group">
                                 <label>Upload Foto Kartu Pelajar * <br> (Sebagai bukti sah kalau kamu beneran pelajar aktif di Jember. Format foto/PDF maksimal 5MB)</label>
-                                <input type="file" name="student_card" class="form-control" placeholder="" accept="image/*,application/pdf" required>
+                                <input type="file" name="student_card" class="form-control" placeholder="" accept="image/*,application/pdf" data-max-file-size="5242880" data-max-file-message="Ukuran foto kartu pelajar 5MB atau lebih. Silakan unggah file yang lebih kecil." required>
+                                <small class="text-danger d-none mt-2" data-file-size-error-for="student_card"></small>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Upload Foto * <br> (Format foto maksimal 5MB)</label>
-                                <input type="file" name="photo" class="form-control" placeholder="" accept="image/*" required>
+                                <input type="file" name="photo" class="form-control" placeholder="" accept="image/*" data-max-file-size="5242880" data-max-file-message="Ukuran foto 5MB atau lebih. Silakan unggah file yang lebih kecil." required>
+                                <small class="text-danger d-none mt-2" data-file-size-error-for="photo"></small>
                             </div>
                             <div class="col-12 form-group">
                                 <label class="mb-3">Komitmen Audisi *</label>
@@ -711,6 +713,71 @@
                 const digits = input.value.replace(/\D/g, '');
                 input.value = Number.isFinite(maxDigits) ? digits.slice(0, maxDigits) : digits;
             });
+        });
+
+        const validateFileSize = (input) => {
+            const maxFileSize = Number.parseInt(input.dataset.maxFileSize, 10);
+            const file = input.files?.[0];
+            const errorMessage = document.querySelector(`[data-file-size-error-for="${input.name}"]`);
+
+            const hideFileSizeError = () => {
+                if (!errorMessage) {
+                    return;
+                }
+
+                errorMessage.textContent = '';
+                errorMessage.classList.add('d-none');
+            };
+
+            const showFileSizeError = (message) => {
+                if (!errorMessage) {
+                    return;
+                }
+
+                errorMessage.textContent = message;
+                errorMessage.classList.remove('d-none');
+            };
+
+            if (!file || !Number.isFinite(maxFileSize)) {
+                input.setCustomValidity('');
+                hideFileSizeError();
+
+                return true;
+            }
+
+            if (file.size >= maxFileSize) {
+                const message = input.dataset.maxFileMessage || 'Ukuran file terlalu besar.';
+
+                input.setCustomValidity(message);
+                input.reportValidity();
+                showFileSizeError(message);
+                input.value = '';
+
+                return false;
+            }
+
+            input.setCustomValidity('');
+            hideFileSizeError();
+
+            return true;
+        };
+
+        const maxFileInputs = document.querySelectorAll('[data-max-file-size]');
+
+        maxFileInputs.forEach((input) => {
+            input.addEventListener('change', () => {
+                validateFileSize(input);
+                input.reportValidity();
+            });
+        });
+
+        document.getElementById('registration-submit-form')?.addEventListener('submit', (event) => {
+            const isFileSizeValid = Array.from(maxFileInputs).every(validateFileSize);
+
+            if (!isFileSizeValid) {
+                event.preventDefault();
+                maxFileInputs.forEach((input) => input.reportValidity());
+            }
         });
 
         document.querySelectorAll('.audition-position-btn').forEach((button) => {
