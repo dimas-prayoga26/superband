@@ -40,16 +40,27 @@
                             <th>Kelas</th>
                             <th>Kategori</th>
                             <th>WhatsApp</th>
+                            <th>Kartu Pelajar</th>
                             <th>Status</th>
                             <th>Masuk</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($registrations as $registration)
+                            @php
+                                $participantPhotoUrl = $registration->photo_path ? asset('storage/'.$registration->photo_path) : null;
+                                $studentCardUrl = $registration->student_card_path ? asset('storage/'.$registration->student_card_path) : null;
+                            @endphp
                             <tr>
                                 <td>
                                     <div class="isc-photo-cell">
-                                        <span class="isc-avatar">{{ strtoupper(substr($registration->full_name, 0, 1)) }}</span>
+                                        @if ($participantPhotoUrl)
+                                            <span class="isc-avatar is-photo">
+                                                <img src="{{ $participantPhotoUrl }}" alt="Foto {{ $registration->full_name }}">
+                                            </span>
+                                        @else
+                                            <span class="isc-avatar">{{ strtoupper(substr($registration->full_name, 0, 1)) }}</span>
+                                        @endif
                                         <span>
                                             <span class="cell-name">{{ $registration->full_name }}</span>
                                             <span class="cell-date">{{ $registration->stage_name ?: 'Tanpa stage name' }}</span>
@@ -60,12 +71,26 @@
                                 <td>{{ $registration->grade }}</td>
                                 <td>{{ $registration->audition_position }}</td>
                                 <td>{{ $registration->whatsapp }}</td>
+                                <td>
+                                    @if ($studentCardUrl)
+                                        <a class="isc-file-link" href="{{ $studentCardUrl }}" target="_blank" rel="noopener">
+                                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M14 3h7v7"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path>
+                                            </svg>
+                                            Lihat
+                                        </a>
+                                    @else
+                                        <span class="cell-date">Tidak ada</span>
+                                    @endif
+                                </td>
                                 <td><span class="tag t-active">{{ ucfirst($registration->status) }}</span></td>
                                 <td class="cell-date">{{ $registration->created_at?->format('d M Y H:i') }}</td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7">
+                                <td colspan="8">
                                     <div class="isc-page-empty">Belum ada peserta yang mendaftar.</div>
                                 </td>
                             </tr>

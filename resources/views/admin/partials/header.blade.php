@@ -19,7 +19,9 @@
             <span>Lihat website</span>
         </a>
         <div class="dd-wrap" data-profile-menu>
-            <button class="avatar" type="button" data-profile-toggle>{{ $initials ?: 'AD' }}</button>
+            <button class="avatar avatar--photo" type="button" data-profile-toggle aria-label="Buka menu profile">
+                <img class="isc-admin-photo" src="{{ $adminProfilePhoto }}" alt="{{ $userName }}">
+            </button>
             <div class="dd-menu dd-profile">
                 <div class="dd-profile-head">
                     <div class="dd-profile-name">{{ $userName }}</div>

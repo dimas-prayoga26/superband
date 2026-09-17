@@ -34,6 +34,7 @@ class DashboardController extends Controller
                 'school',
                 'grade',
                 'audition_position',
+                'photo_path',
                 'status',
                 'created_at',
             ]);

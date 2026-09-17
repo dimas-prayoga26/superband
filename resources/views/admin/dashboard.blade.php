@@ -139,10 +139,19 @@
                         </thead>
                         <tbody>
                             @forelse ($latestRegistrations as $registration)
+                                @php
+                                    $participantPhotoUrl = $registration->photo_path ? asset('storage/'.$registration->photo_path) : null;
+                                @endphp
                                 <tr>
                                     <td>
                                         <div class="isc-photo-cell">
-                                            <span class="isc-avatar">{{ strtoupper(substr($registration->full_name, 0, 1)) }}</span>
+                                            @if ($participantPhotoUrl)
+                                                <span class="isc-avatar is-photo">
+                                                    <img src="{{ $participantPhotoUrl }}" alt="Foto {{ $registration->full_name }}">
+                                                </span>
+                                            @else
+                                                <span class="isc-avatar">{{ strtoupper(substr($registration->full_name, 0, 1)) }}</span>
+                                            @endif
                                             <span>
                                                 <span class="cell-name">{{ $registration->stage_name ?: $registration->full_name }}</span>
                                                 <span class="cell-date">{{ $registration->school }} - Kelas {{ $registration->grade }}</span>

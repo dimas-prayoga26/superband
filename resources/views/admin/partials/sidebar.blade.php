@@ -32,7 +32,9 @@
 
     <div class="sidebar-footer">
         <div class="workspace">
-            <span class="workspace-avatar">{{ $initials ?: 'AD' }}</span>
+            <span class="workspace-avatar is-photo">
+                <img src="{{ $adminProfilePhoto }}" alt="{{ $userName }}">
+            </span>
             <span class="workspace-text">
                 <span class="workspace-name">{{ $userName }}</span>
                 <span class="workspace-role">{{ ucfirst($panelRole ?? 'admin') }}</span>

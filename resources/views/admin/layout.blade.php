@@ -6,6 +6,7 @@
         ->map(fn (string $part): string => strtoupper(substr($part, 0, 1)))
         ->take(2)
         ->implode('');
+    $adminProfilePhoto = asset('assets/img/logo.png');
 @endphp
 <!DOCTYPE html>
 <html lang="id" data-theme="light">
@@ -103,6 +104,79 @@
             height: 34px;
             place-items: center;
             width: 34px;
+        }
+
+        .isc-avatar.is-photo {
+            background: var(--bg-muted);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .isc-avatar.is-photo img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .isc-admin-photo {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+            display: block;
+            height: 34px;
+            object-fit: contain;
+            padding: 3px;
+            width: 34px;
+        }
+
+        .avatar.avatar--photo {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .workspace-avatar.is-photo {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .workspace-avatar.is-photo img {
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .isc-file-link {
+            align-items: center;
+            background: var(--primary-soft);
+            border-radius: 999px;
+            color: var(--primary);
+            display: inline-flex;
+            font-size: 11px;
+            font-weight: 700;
+            gap: 6px;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        .isc-file-link:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .isc-file-link svg {
+            fill: none;
+            height: 13px;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+            width: 13px;
         }
 
         .isc-logout {
