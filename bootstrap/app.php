@@ -17,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (PostTooLargeException $exception, Request $request) {
-            $message = 'Ukuran file yang diupload 5MB atau lebih. Silakan unggah file yang lebih kecil.';
+            $message = 'Ukuran file yang diupload melebihi batas maksimal 2MB per file. Silakan unggah file yang lebih kecil.';
 
             if ($request->expectsJson()) {
                 return response()->json([

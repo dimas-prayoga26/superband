@@ -518,13 +518,13 @@
                                 <input type="url" name="audition_video_url" class="form-control" value="{{ old('audition_video_url') }}" placeholder="" required>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Upload Foto Kartu Pelajar * <br> (Sebagai bukti sah kalau kamu beneran pelajar aktif di Jember. Format foto/PDF maksimal 5MB)</label>
-                                <input type="file" name="student_card" class="form-control" placeholder="" accept="image/*,application/pdf" data-max-file-size="5242880" data-max-file-message="Ukuran foto kartu pelajar 5MB atau lebih. Silakan unggah file yang lebih kecil." required>
+                                <label>Upload Foto Kartu Pelajar * <br> (Sebagai bukti sah kalau kamu beneran pelajar aktif di Jember. Format foto/PDF maksimal 2MB)</label>
+                                <input type="file" name="student_card" class="form-control" placeholder="" accept="image/*,application/pdf" data-max-file-size="2097152" data-max-file-message="Ukuran foto kartu pelajar maksimal 2MB. Silakan unggah file yang lebih kecil." required>
                                 <small class="text-danger d-none mt-2" data-file-size-error-for="student_card"></small>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Upload Foto * <br> (Format foto maksimal 5MB)</label>
-                                <input type="file" name="photo" class="form-control" placeholder="" accept="image/*" data-max-file-size="5242880" data-max-file-message="Ukuran foto 5MB atau lebih. Silakan unggah file yang lebih kecil." required>
+                                <label>Upload Foto * <br> (Format foto maksimal 2MB)</label>
+                                <input type="file" name="photo" class="form-control" placeholder="" accept="image/*" data-max-file-size="2097152" data-max-file-message="Ukuran foto maksimal 2MB. Silakan unggah file yang lebih kecil." required>
                                 <small class="text-danger d-none mt-2" data-file-size-error-for="photo"></small>
                             </div>
                             <div class="col-12 form-group">
