@@ -140,7 +140,9 @@
                         <tbody>
                             @forelse ($latestRegistrations as $registration)
                                 @php
-                                    $participantPhotoUrl = $registration->photo_path ? asset('storage/'.$registration->photo_path) : null;
+                                    $participantPhotoUrl = $registration->photo_path
+                                        ? route('admin.registrations.file', [$registration, 'photo'])
+                                        : null;
                                 @endphp
                                 <tr>
                                     <td>

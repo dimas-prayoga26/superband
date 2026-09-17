@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RegistrationFileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegistrationController;
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'can:access admin panel'])
         Route::redirect('/', '/admin/dashboard')->name('index');
         Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
         Route::get('/peserta', [DashboardController::class, 'participants'])->name('participants');
+        Route::get('/registrations/{registration}/files/{file}', RegistrationFileController::class)->name('registrations.file');
     });
 
 Route::resource('register', RegistrationController::class)

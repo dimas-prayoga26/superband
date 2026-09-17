@@ -48,8 +48,12 @@
                     <tbody>
                         @forelse ($registrations as $registration)
                             @php
-                                $participantPhotoUrl = $registration->photo_path ? asset('storage/'.$registration->photo_path) : null;
-                                $studentCardUrl = $registration->student_card_path ? asset('storage/'.$registration->student_card_path) : null;
+                                $participantPhotoUrl = $registration->photo_path
+                                    ? route('admin.registrations.file', [$registration, 'photo'])
+                                    : null;
+                                $studentCardUrl = $registration->student_card_path
+                                    ? route('admin.registrations.file', [$registration, 'student-card'])
+                                    : null;
                             @endphp
                             <tr>
                                 <td>
