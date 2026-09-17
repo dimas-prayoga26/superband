@@ -358,19 +358,19 @@
                     <div class="about-lineup-board wow img-custom-anim-left" data-wow-duration="1.5s" data-wow-delay="0.1s" aria-label="Band lineup preview">
                         <div class="about-lineup-grid">
                             <figure class="about-lineup-slot slot-vocal">
-                                <img src="{{ asset('assets/Jember Feed 13.jpg') }}" alt="Vocalist">
+                                <img src="{{ asset('assets/jember-feed-13.jpg') }}" alt="Vocalist">
                             </figure>
                             <figure class="about-lineup-slot slot-guitar">
-                                <img src="{{ asset('assets/Jember Feed 14.jpg') }}" alt="Guitarist">
+                                <img src="{{ asset('assets/jember-feed-14.jpg') }}" alt="Guitarist">
                             </figure>
                             <figure class="about-lineup-slot slot-bass">
-                                <img src="{{ asset('assets/Jember Feed 15.jpg') }}" alt="Bassist">
+                                <img src="{{ asset('assets/jember-feed-15.jpg') }}" alt="Bassist">
                             </figure>
                             <figure class="about-lineup-slot slot-keys">
-                                <img src="{{ asset('assets/Jember Feed 17.jpg') }}" alt="Keyboardist">
+                                <img src="{{ asset('assets/jember-feed-17.jpg') }}" alt="Keyboardist">
                             </figure>
                             <figure class="about-lineup-slot slot-drum">
-                                <img src="{{ asset('assets/Jember Feed 16.jpg') }}" alt="Drummer">
+                                <img src="{{ asset('assets/jember-feed-16.jpg') }}" alt="Drummer">
                             </figure>
                         </div>
                     </div>
@@ -1214,7 +1214,7 @@
             },
             {
                 label: 'TONE',
-                src: 'assets/img/component_music/guitar%20(1).png',
+                src: 'assets/img/component_music/guitar-1.png',
                 alt: 'Guitarist icon'
             },
             {

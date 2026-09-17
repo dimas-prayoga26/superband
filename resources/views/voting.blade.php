@@ -291,7 +291,7 @@
     <!--==============================
     Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/Jember Feed 18.png') }}">
+    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/jember-feed-18.png') }}">
         <div class="container">
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Vote Now</h1>

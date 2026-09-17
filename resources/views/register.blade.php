@@ -216,7 +216,7 @@
     <!--==============================
     Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper register-breadcumb" data-bg-src="{{ asset('assets/Jember Feed 19.png') }}">
+    <div class="breadcumb-wrapper register-breadcumb" data-bg-src="{{ asset('assets/jember-feed-19.png') }}">
         <div class="container">
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Register</h1>
