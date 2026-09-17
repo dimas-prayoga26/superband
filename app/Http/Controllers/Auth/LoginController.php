@@ -37,8 +37,21 @@ class LoginController extends Controller
         return redirect()->route('login');
     }
 
-    public function voting(): View
+    public function voting(Request $request): View|RedirectResponse
     {
+        if (! $request->user()) {
+            return view('auth.voting-login');
+        }
+
+        if ($request->user()->can(self::VOTING_PERMISSION)) {
+            return redirect()->route('voting');
+        }
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return view('auth.voting-login');
     }
 

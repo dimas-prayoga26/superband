@@ -20,8 +20,9 @@ Route::redirect('/login', '/admin/login');
 Route::get('/admin/login', [LoginController::class, 'staff'])->name('login');
 Route::post('/admin/login', [LoginController::class, 'authenticateStaff'])->middleware('throttle:5,1')->name('login.store');
 
+Route::get('/voting/login', [LoginController::class, 'voting'])->name('voting.login');
+
 Route::middleware('guest')->group(function () {
-    Route::get('/voting/login', [LoginController::class, 'voting'])->name('voting.login');
     Route::post('/voting/login', [LoginController::class, 'authenticateVoting'])->middleware('throttle:5,1')->name('voting.login.store');
     Route::post('/voting/register', [LoginController::class, 'registerVoting'])->middleware('throttle:5,1')->name('voting.register.store');
 });
