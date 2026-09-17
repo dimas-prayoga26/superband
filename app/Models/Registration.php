@@ -37,7 +37,7 @@ class Registration extends Model
         return match ($this->audition_position) {
             'Vocal', 'Vokalis' => 'assets/img/Siluet/email-watermark/Vokalist.svg',
             'Bassis' => 'assets/img/Siluet/email-watermark/Bassist.svg',
-            'Keyboardist' => 'assets/img/Siluet/email-watermark/Keboardist.svg',
+            'Keyboardist' => 'assets/img/Siluet/email-watermark/Keyboardist.svg',
             'Drummer' => 'assets/img/Siluet/email-watermark/Drum.svg',
             default => 'assets/img/Siluet/email-watermark/Guitarist.svg',
         };

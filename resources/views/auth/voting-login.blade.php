@@ -23,7 +23,7 @@
             min-height: 100vh;
             background:
                 linear-gradient(135deg, rgba(11, 16, 32, 0.7), rgba(39, 63, 150, 0.48)),
-                url("{{ asset('assets/Jember%20Feed%2019.png') }}") center / cover no-repeat;
+                url("{{ asset('assets/Jember Feed 19.png') }}") center / cover no-repeat;
         }
 
         .voting-login-card {

@@ -106,7 +106,7 @@
       Vokalis: 'assets/img/Siluet/email-watermark/Vokalist.svg?v=2',
       Gitaris: 'assets/img/Siluet/email-watermark/Guitarist.svg?v=2',
       Bassis: 'assets/img/Siluet/email-watermark/Bassist.svg?v=2',
-      Keyboardist: 'assets/img/Siluet/email-watermark/Keboardist.svg?v=2',
+      Keyboardist: 'assets/img/Siluet/email-watermark/Keyboardist.svg?v=2',
       Drummer: 'assets/img/Siluet/email-watermark/Drum.svg?v=2',
     };
 

@@ -19,9 +19,22 @@ class LoginController extends Controller
 
     private const VOTING_PERMISSION = 'access voting';
 
-    public function staff(): View
+    public function staff(Request $request): View|RedirectResponse
     {
-        return view('auth.staff-login');
+        if (! $request->user()) {
+            return view('auth.staff-login');
+        }
+
+        if ($request->user()->can(self::ADMIN_PANEL_PERMISSION)) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 
     public function voting(): View
@@ -45,7 +58,7 @@ class LoginController extends Controller
             'email',
         );
 
-        return redirect()->intended(route('admin.dashboard'));
+        return redirect()->route('admin.dashboard');
     }
 
     public function authenticateVoting(Request $request): RedirectResponse

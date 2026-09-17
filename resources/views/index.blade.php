@@ -289,7 +289,7 @@
             <div class="hero-style13">
                 <div class="hero-thumb13-1 wow img-custom-anim-right fade_right" data-wow-duration="1.5s" data-wow-delay="0.1s">
                     <div class="hero-silhouette-stage" aria-hidden="true">
-                        <img class="hero-silhouette-img" src="{{ asset('assets/img/siluet/Vokalist.svg') }}" alt="" data-hero-silhouette>
+                        <img class="hero-silhouette-img" src="{{ asset('assets/img/Siluet/Vokalist.svg') }}" alt="" data-hero-silhouette>
                     </div>
                 </div>
                 <div class="hero-thumb13-2 wow img-custom-anim-left fade_left" data-wow-duration="1.5s" data-wow-delay="0.1s">
@@ -1180,11 +1180,11 @@
         }
 
         const heroSilhouetteItems = [
-            '{{ asset('assets/img/siluet/Vokalist.svg') }}',
-            '{{ asset('assets/img/siluet/Guitarist.svg') }}',
-            '{{ asset('assets/img/siluet/Bassist.svg') }}',
-            '{{ asset('assets/img/siluet/Keboardist.svg') }}',
-            '{{ asset('assets/img/siluet/Drum.svg') }}'
+            '{{ asset('assets/img/Siluet/Vokalist.svg') }}',
+            '{{ asset('assets/img/Siluet/Guitarist.svg') }}',
+            '{{ asset('assets/img/Siluet/Bassist.svg') }}',
+            '{{ asset('assets/img/Siluet/Keyboardist.svg') }}',
+            '{{ asset('assets/img/Siluet/Drum.svg') }}'
         ];
         const heroSilhouette = document.querySelector('[data-hero-silhouette]');
         let activeHeroSilhouetteIndex = 0;
