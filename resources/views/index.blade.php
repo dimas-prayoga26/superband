@@ -38,6 +38,164 @@
     <link rel="stylesheet" href="assets/css/imageRevealHover.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css?v=anchor-offset-1">
+    <style>
+        .register-header-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+        }
+
+        .register-header-row > .col-auto {
+            width: auto;
+        }
+
+        .register-header-menu {
+            justify-self: center;
+        }
+
+        .register-header-spacer {
+            min-width: 100px;
+        }
+
+        .voting-profile-wrap {
+            display: flex;
+            justify-content: flex-end;
+            min-width: 100px;
+            position: relative;
+        }
+
+        .voting-profile-button {
+            align-items: center;
+            background: #f7f7f7;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            color: #111;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            gap: 10px;
+            line-height: 1;
+            padding: 8px 12px 8px 8px;
+        }
+
+        .voting-profile-button:hover,
+        .voting-profile-button:focus {
+            border-color: #1f3f93;
+            color: #1f3f93;
+        }
+
+        .voting-profile-avatar {
+            align-items: center;
+            background: #1f3f93;
+            border-radius: 50%;
+            color: #fff;
+            display: inline-flex;
+            height: 34px;
+            justify-content: center;
+            width: 34px;
+        }
+
+        .voting-profile-button-name {
+            display: inline-block;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .voting-profile-menu {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+            min-width: 230px;
+            opacity: 0;
+            padding: 12px;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 12px);
+            transform: translateY(-6px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 99;
+        }
+
+        .voting-profile-wrap.is-open .voting-profile-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .voting-profile-name {
+            color: #111;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .voting-profile-contact {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .voting-profile-logout {
+            align-items: center;
+            background: #fff1f1;
+            border: 0;
+            border-radius: 8px;
+            color: #c62828;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            gap: 8px;
+            justify-content: center;
+            padding: 10px 12px;
+            width: 100%;
+        }
+
+        .voting-profile-logout:hover,
+        .voting-profile-logout:focus {
+            background: #c62828;
+            color: #fff;
+        }
+
+        .voting-mobile-profile {
+            border-top: 1px solid #e6e6e6;
+            margin-top: 18px;
+            padding-top: 18px;
+        }
+
+        .voting-mobile-profile-name {
+            color: #111;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .voting-mobile-logout {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            color: #c62828;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            gap: 8px;
+            padding: 0;
+        }
+
+        @media (max-width: 991px) {
+            .register-header-row {
+                display: flex;
+            }
+        }
+    </style>
 
 </head>
 
@@ -59,14 +217,6 @@
             <span></span>
             <span></span>
         </div>
-    </div>
-
-    <div class="popup-search-box">
-        <button class="searchClose"><img src="assets/img/icon/close.svg" alt="img"></button>
-        <form action="#">
-            <input type="text" placeholder="Search Here..">
-            <button type="submit"><img src="assets/img/icon/search-white.svg" alt="img"></button>
-        </form>
     </div>
 
     <div class="sidemenu-wrapper">
@@ -150,6 +300,18 @@
                     </li>
                 </ul>
             </div>
+            @auth
+                <div class="voting-mobile-profile">
+                    <div class="voting-mobile-profile-name">{{ auth()->user()->name }}</div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="voting-mobile-logout" type="submit">
+                            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            @endauth
             <div class="sidebar-wrap">
                 <h6>Kabupaten Jember, </h6>
                 <h6>Jawa Timur</h6>
@@ -194,13 +356,13 @@
             <!-- Main Menu Area -->
             <div class="menu-area">
                 <div class="container-fluid">
-                    <div class="row align-items-center justify-content-between">
+                    <div class="row align-items-center justify-content-between register-header-row">
                         <div class="col-auto">
                             <div class="header-logo">
                                 <a href="{{ route('home') }}"><img src="assets/img/logo.png" alt="logo" width="100"></a>
                             </div>
                         </div>
-                        <div class="col-auto m-lg-auto">
+                        <div class="col-auto m-lg-auto register-header-menu">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
@@ -261,20 +423,30 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <div class="header-button ms-0">
-                                <button type="button" class="search-btn searchBoxToggler">
-                                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
-                                        <path d="M19.0004 19.0004L14.6504 14.6504" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
-                                    </svg>
-                                    <span class="link-effect">
-                                        <span class="effect-1">SEARCH</span>
-                                        <span class="effect-1">SEARCH</span>
+                        @auth
+                            <div class="col-auto d-none d-lg-flex voting-profile-wrap" data-voting-profile-menu>
+                                <button class="voting-profile-button" type="button" data-voting-profile-toggle aria-expanded="false" aria-label="Buka menu profile">
+                                    <span class="voting-profile-avatar" aria-hidden="true">
+                                        <i class="fas fa-user"></i>
                                     </span>
+                                    <span class="voting-profile-button-name">{{ auth()->user()->name }}</span>
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
                                 </button>
+                                <div class="voting-profile-menu">
+                                    <div class="voting-profile-name">{{ auth()->user()->name }}</div>
+                                    <div class="voting-profile-contact">{{ auth()->user()->phone ?? auth()->user()->email }}</div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="voting-profile-logout" type="submit">
+                                            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="col-auto d-none d-lg-block register-header-spacer" aria-hidden="true"></div>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -1248,6 +1420,24 @@
         }
 
         setInterval(updateMusicOrbit, 2200);
+
+        document.querySelectorAll('[data-voting-profile-toggle]').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+
+                const menu = button.closest('[data-voting-profile-menu]');
+                const isOpen = menu?.classList.toggle('is-open') ?? false;
+
+                button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('[data-voting-profile-menu].is-open').forEach((menu) => {
+                menu.classList.remove('is-open');
+                menu.querySelector('[data-voting-profile-toggle]')?.setAttribute('aria-expanded', 'false');
+            });
+        });
     </script>
 </body>
 

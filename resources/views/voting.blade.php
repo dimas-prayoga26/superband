@@ -56,6 +56,140 @@
             min-width: 100px;
         }
 
+        .voting-profile-wrap {
+            display: flex;
+            justify-content: flex-end;
+            min-width: 100px;
+            position: relative;
+        }
+
+        .voting-profile-button {
+            align-items: center;
+            background: #f7f7f7;
+            border: 1px solid #e6e6e6;
+            border-radius: 999px;
+            color: #111;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            gap: 10px;
+            line-height: 1;
+            padding: 8px 12px 8px 8px;
+        }
+
+        .voting-profile-button:hover,
+        .voting-profile-button:focus {
+            border-color: #1f3f93;
+            color: #1f3f93;
+        }
+
+        .voting-profile-avatar {
+            align-items: center;
+            background: #1f3f93;
+            border-radius: 50%;
+            color: #fff;
+            display: inline-flex;
+            height: 34px;
+            justify-content: center;
+            width: 34px;
+        }
+
+        .voting-profile-button-name {
+            display: inline-block;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .voting-profile-menu {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+            min-width: 230px;
+            opacity: 0;
+            padding: 12px;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 12px);
+            transform: translateY(-6px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 99;
+        }
+
+        .voting-profile-wrap.is-open .voting-profile-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .voting-profile-name {
+            color: #111;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .voting-profile-contact {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .voting-profile-logout {
+            align-items: center;
+            background: #fff1f1;
+            border: 0;
+            border-radius: 8px;
+            color: #c62828;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            gap: 8px;
+            justify-content: center;
+            padding: 10px 12px;
+            width: 100%;
+        }
+
+        .voting-profile-logout:hover,
+        .voting-profile-logout:focus {
+            background: #c62828;
+            color: #fff;
+        }
+
+        .voting-mobile-profile {
+            border-top: 1px solid #e6e6e6;
+            margin-top: 18px;
+            padding-top: 18px;
+        }
+
+        .voting-mobile-profile-name {
+            color: #111;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .voting-mobile-logout {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            color: #c62828;
+            display: inline-flex;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            gap: 8px;
+            padding: 0;
+        }
+
         @media (max-width: 991px) {
             .register-header-row {
                 display: flex;
@@ -170,6 +304,18 @@
                     <li><a href="{{ route('home') }}#articles">ARTICLES</a></li>
                 </ul>
             </div>
+            @auth
+                <div class="voting-mobile-profile">
+                    <div class="voting-mobile-profile-name">{{ auth()->user()->name }}</div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="voting-mobile-logout" type="submit">
+                            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            @endauth
             <div class="sidebar-wrap">
                 <h6>27 Division St, New York,</h6>
                 <h6>NY 10002, USA</h6>
@@ -281,7 +427,30 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-auto d-none d-lg-block register-header-spacer" aria-hidden="true"></div>
+                        @auth
+                            <div class="col-auto d-none d-lg-flex voting-profile-wrap" data-voting-profile-menu>
+                                <button class="voting-profile-button" type="button" data-voting-profile-toggle aria-expanded="false" aria-label="Buka menu profile">
+                                    <span class="voting-profile-avatar" aria-hidden="true">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <span class="voting-profile-button-name">{{ auth()->user()->name }}</span>
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <div class="voting-profile-menu">
+                                    <div class="voting-profile-name">{{ auth()->user()->name }}</div>
+                                    <div class="voting-profile-contact">{{ auth()->user()->phone ?? auth()->user()->email }}</div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="voting-profile-logout" type="submit">
+                                            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-auto d-none d-lg-block register-header-spacer" aria-hidden="true"></div>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -508,6 +677,25 @@
 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        document.querySelectorAll('[data-voting-profile-toggle]').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+
+                const menu = button.closest('[data-voting-profile-menu]');
+                const isOpen = menu?.classList.toggle('is-open') ?? false;
+
+                button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('[data-voting-profile-menu].is-open').forEach((menu) => {
+                menu.classList.remove('is-open');
+                menu.querySelector('[data-voting-profile-toggle]')?.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 
 </html>
