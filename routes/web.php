@@ -24,7 +24,9 @@ Route::get('/voting/login', [LoginController::class, 'voting'])->name('voting.lo
 
 Route::middleware('guest')->group(function () {
     Route::post('/voting/login', [LoginController::class, 'authenticateVoting'])->middleware('throttle:5,1')->name('voting.login.store');
-    Route::post('/voting/register', [LoginController::class, 'registerVoting'])->middleware('throttle:5,1')->name('voting.register.store');
+    Route::post('/voting/register', [LoginController::class, 'registerVoting'])->middleware('throttle:3,1')->name('voting.register.store');
+    Route::post('/voting/register/resend', [LoginController::class, 'resendVotingRegistrationOtp'])->middleware('throttle:3,1')->name('voting.register.resend');
+    Route::post('/voting/register/verify', [LoginController::class, 'verifyVotingRegistrationOtp'])->middleware('throttle:10,1')->name('voting.register.verify');
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');

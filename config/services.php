@@ -40,4 +40,9 @@ return [
         'secret_key' => env('CLOUDFLARE_TURNSTILE_SECRET_KEY'),
     ],
 
+    'fonnte' => [
+        'token' => env('FONNTE_TOKEN'),
+        'url' => env('FONNTE_URL', 'https://api.fonnte.com/send'),
+    ],
+
 ];

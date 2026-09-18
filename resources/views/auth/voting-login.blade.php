@@ -20,10 +20,16 @@
         }
 
         .voting-login-section {
+            display: flex;
+            align-items: center;
             min-height: 100vh;
             background:
                 linear-gradient(135deg, rgba(11, 16, 32, 0.7), rgba(39, 63, 150, 0.48)),
                 url("{{ asset('assets/jember-feed-19.png') }}") center / cover no-repeat;
+        }
+
+        .voting-login-section > .container {
+            width: 100%;
         }
 
         .voting-login-card {
@@ -257,6 +263,61 @@
             display: block;
         }
 
+        .voting-auth-form .form-label {
+            margin-bottom: 0.45rem;
+            font-weight: 700;
+            color: var(--isc-dark);
+        }
+
+        .voting-register-step {
+            display: none;
+        }
+
+        .voting-register-step.is-active {
+            display: block;
+        }
+
+        .voting-otp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .voting-otp-input {
+            height: 3.8rem;
+            padding: 0.5rem;
+            font-size: 1.7rem;
+            font-weight: 800;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .voting-register-error {
+            display: none;
+            font-size: 0.85rem;
+            color: #dc3545;
+        }
+
+        .voting-register-error.is-active {
+            display: block;
+        }
+
+        .voting-register-error.is-success {
+            color: #198754;
+        }
+
+        .form-control.voting-password-invalid,
+        .form-control.voting-password-invalid:focus {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.12);
+        }
+
+        .form-control.voting-password-valid,
+        .form-control.voting-password-valid:focus {
+            border-color: #198754;
+            box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+        }
+
         .btn-voting-login {
             --bs-btn-bg: var(--isc-dark);
             --bs-btn-border-color: var(--isc-dark);
@@ -271,6 +332,14 @@
         .btn-voting-login:focus,
         .btn-voting-login:active {
             color: #ffffff !important;
+        }
+
+        .btn-voting-login:disabled {
+            color: rgba(255, 255, 255, 0.72);
+            cursor: not-allowed;
+            background: #4b5563;
+            border-color: #4b5563;
+            opacity: 1;
         }
 
         .form-control:focus {
@@ -294,9 +363,9 @@
     </style>
 </head>
 <body>
-<section class="voting-login-section vh-100">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+<section class="voting-login-section">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
             <div class="col col-xl-10">
                 <div class="card voting-login-card">
                     <div class="row g-0">
@@ -376,6 +445,7 @@
                                     <input type="hidden" name="_form" value="login">
 
                                     <div class="form-outline mb-4">
+                                        <label class="form-label" for="votingPhone">Nomor HP</label>
                                         <input
                                             type="tel"
                                             id="votingPhone"
@@ -388,7 +458,6 @@
                                             pattern="[0-9]*"
                                             required
                                         >
-                                        <label class="form-label" for="votingPhone">Nomor HP</label>
                                         @if ($activeVotingForm === 'login')
                                             @error('phone')
                                                 <small class="text-danger d-block mt-2">{{ $message }}</small>
@@ -397,6 +466,7 @@
                                     </div>
 
                                     <div class="form-outline mb-4">
+                                        <label class="form-label" for="votingPassword">Password</label>
                                         <input
                                             type="password"
                                             id="votingPassword"
@@ -405,7 +475,6 @@
                                             autocomplete="current-password"
                                             required
                                         >
-                                        <label class="form-label" for="votingPassword">Password</label>
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -434,85 +503,107 @@
                                     method="POST"
                                     class="voting-auth-form {{ $activeVotingForm === 'register' ? 'is-active' : '' }}"
                                     data-auth-form="register"
+                                    data-register-verify-url="{{ route('voting.register.verify') }}"
+                                    data-register-resend-url="{{ route('voting.register.resend') }}"
+                                    novalidate
                                 >
                                     @csrf
                                     <input type="hidden" name="_form" value="register">
 
-                                    <div class="form-outline mb-3">
-                                        <input
-                                            type="text"
-                                            id="votingRegisterName"
-                                            name="name"
-                                            class="form-control form-control-lg"
-                                            value="{{ old('_form') === 'register' ? old('name') : '' }}"
-                                            autocomplete="name"
-                                            required
-                                        >
-                                        <label class="form-label" for="votingRegisterName">Nama</label>
-                                        @error('name')
-                                            <small class="text-danger d-block mt-2">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-outline mb-3">
-                                        <input
-                                            type="tel"
-                                            id="votingRegisterPhone"
-                                            name="phone"
-                                            class="form-control form-control-lg"
-                                            value="{{ old('_form') === 'register' ? old('phone') : '' }}"
-                                            autocomplete="tel"
-                                            inputmode="numeric"
-                                            maxlength="13"
-                                            pattern="[0-9]*"
-                                            required
-                                        >
-                                        <label class="form-label" for="votingRegisterPhone">Nomor HP</label>
-                                        @if ($activeVotingForm === 'register')
-                                            @error('phone')
+                                    <div class="voting-register-step is-active" data-register-step="details">
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="votingRegisterName">Nama</label>
+                                            <input
+                                                type="text"
+                                                id="votingRegisterName"
+                                                name="name"
+                                                class="form-control form-control-lg"
+                                                value="{{ old('_form') === 'register' ? old('name') : '' }}"
+                                                autocomplete="name"
+                                                required
+                                            >
+                                            @error('name')
                                                 <small class="text-danger d-block mt-2">{{ $message }}</small>
                                             @enderror
-                                        @endif
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="votingRegisterPhone">Nomor HP</label>
+                                            <input
+                                                type="tel"
+                                                id="votingRegisterPhone"
+                                                name="phone"
+                                                class="form-control form-control-lg"
+                                                value="{{ old('_form') === 'register' ? old('phone') : '' }}"
+                                                autocomplete="tel"
+                                                inputmode="numeric"
+                                                maxlength="13"
+                                                pattern="[0-9]*"
+                                                required
+                                            >
+                                            @if ($activeVotingForm === 'register')
+                                                @error('phone')
+                                                    <small class="text-danger d-block mt-2">{{ $message }}</small>
+                                                @enderror
+                                            @endif
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="votingRegisterPassword">Password</label>
+                                            <input
+                                                type="password"
+                                                id="votingRegisterPassword"
+                                                name="password"
+                                                class="form-control form-control-lg"
+                                                autocomplete="new-password"
+                                                required
+                                            >
+                                            @if ($activeVotingForm === 'register')
+                                                @error('password')
+                                                    <small class="text-danger d-block mt-2">{{ $message }}</small>
+                                                @enderror
+                                            @endif
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="votingRegisterPasswordConfirmation">Confirm Password</label>
+                                            <input
+                                                type="password"
+                                                id="votingRegisterPasswordConfirmation"
+                                                name="password_confirmation"
+                                                class="form-control form-control-lg"
+                                                autocomplete="new-password"
+                                                required
+                                            >
+                                            <small class="voting-register-error mt-2" data-register-error></small>
+                                        </div>
+
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-voting-login btn-lg btn-block w-100" type="submit" data-register-submit>Register</button>
+                                        </div>
                                     </div>
 
-                                    <div class="form-outline mb-3">
-                                        <input
-                                            type="password"
-                                            id="votingRegisterPassword"
-                                            name="password"
-                                            class="form-control form-control-lg"
-                                            autocomplete="new-password"
-                                            required
-                                        >
-                                        <label class="form-label" for="votingRegisterPassword">Password</label>
-                                        @if ($activeVotingForm === 'register')
-                                            @error('password')
-                                                <small class="text-danger d-block mt-2">{{ $message }}</small>
-                                            @enderror
-                                        @endif
-                                    </div>
+                                    <div class="voting-register-step" data-register-step="otp">
+                                        <label class="form-label d-block" for="votingRegisterOtp1">Kode OTP</label>
+                                        <div class="voting-otp-grid mb-4">
+                                            @for ($otpIndex = 1; $otpIndex <= 4; $otpIndex++)
+                                                <input
+                                                    type="text"
+                                                    id="votingRegisterOtp{{ $otpIndex }}"
+                                                    class="form-control voting-otp-input"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    pattern="[0-9]*"
+                                                    autocomplete="{{ $otpIndex === 1 ? 'one-time-code' : 'off' }}"
+                                                    aria-label="Digit OTP {{ $otpIndex }}"
+                                                    data-otp-input
+                                                >
+                                            @endfor
+                                        </div>
+                                        <small class="voting-register-error mb-3" data-otp-message></small>
 
-                                    <div class="form-outline mb-4">
-                                        <input
-                                            type="password"
-                                            id="votingRegisterPasswordConfirmation"
-                                            name="password_confirmation"
-                                            class="form-control form-control-lg"
-                                            autocomplete="new-password"
-                                            required
-                                        >
-                                        <label class="form-label" for="votingRegisterPasswordConfirmation">Confirm Password</label>
+                                        <button class="btn btn-voting-login btn-lg btn-block w-100" type="button" data-otp-resend>Resend</button>
                                     </div>
-
-                                    <div class="pt-1 mb-4">
-                                        <button class="btn btn-voting-login btn-lg btn-block w-100" type="submit">Register</button>
-                                    </div>
-
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">
-                                        Akun baru otomatis masuk sebagai voter setelah berhasil dibuat.
-                                    </p>
-                                    <a href="{{ route('home') }}" class="small text-muted">Terms of use.</a>
-                                    <a href="{{ route('home') }}" class="small text-muted ms-2">Privacy policy</a>
                                 </form>
                             </div>
                         </div>
@@ -525,6 +616,304 @@
 <script src="{{ asset('assets/auth/voting-login/libs/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/auth/voting-login/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <script>
+    const registerForm = document.querySelector('[data-auth-form="register"]');
+    const registerDetailStep = registerForm?.querySelector('[data-register-step="details"]');
+    const registerOtpStep = registerForm?.querySelector('[data-register-step="otp"]');
+    const registerPassword = document.getElementById('votingRegisterPassword');
+    const registerPasswordConfirmation = document.getElementById('votingRegisterPasswordConfirmation');
+    const registerError = registerForm?.querySelector('[data-register-error]');
+    const registerSubmitButton = registerForm?.querySelector('[data-register-submit]');
+    const otpMessage = registerForm?.querySelector('[data-otp-message]');
+    const otpResendButton = document.querySelector('[data-otp-resend]');
+    const otpInputs = [...document.querySelectorAll('[data-otp-input]')];
+    let otpResendTimer = null;
+    let isVerifyingOtp = false;
+
+    const csrfToken = registerForm?.querySelector('input[name="_token"]')?.value ?? '';
+
+    const startOtpResendCooldown = (seconds = 60) => {
+        if (!otpResendButton) {
+            return;
+        }
+
+        let remainingSeconds = seconds;
+        otpResendButton.disabled = true;
+        otpResendButton.textContent = `Resend ${remainingSeconds}s`;
+
+        window.clearInterval(otpResendTimer);
+        otpResendTimer = window.setInterval(() => {
+            remainingSeconds -= 1;
+
+            if (remainingSeconds <= 0) {
+                window.clearInterval(otpResendTimer);
+                otpResendButton.disabled = false;
+                otpResendButton.textContent = 'Resend';
+
+                return;
+            }
+
+            otpResendButton.textContent = `Resend ${remainingSeconds}s`;
+        }, 1000);
+    };
+
+    const setOtpMessage = (status, message = '') => {
+        if (!otpMessage) {
+            return;
+        }
+
+        otpMessage.textContent = message;
+        otpMessage.classList.toggle('is-active', message !== '');
+        otpMessage.classList.toggle('is-success', status === 'success');
+    };
+
+    const setRegisterMessage = (status, message = '') => {
+        if (!registerError) {
+            return;
+        }
+
+        registerError.textContent = message;
+        registerError.classList.toggle('is-active', message !== '');
+        registerError.classList.toggle('is-success', status === 'success');
+    };
+
+    const firstResponseMessage = (data, fallback) => {
+        if (data?.message) {
+            return data.message;
+        }
+
+        if (data?.errors) {
+            const firstError = Object.values(data.errors)[0];
+
+            if (Array.isArray(firstError) && firstError.length > 0) {
+                return firstError[0];
+            }
+        }
+
+        return fallback;
+    };
+
+    const postForm = async (url, body) => {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body,
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+            throw new Error(firstResponseMessage(data, 'Permintaan gagal. Silakan coba lagi.'));
+        }
+
+        return data;
+    };
+
+    const setRegisterPasswordFeedback = (status, message = '') => {
+        [registerPassword, registerPasswordConfirmation].forEach((input) => {
+            input?.classList.remove('voting-password-invalid', 'voting-password-valid');
+
+            if (status === 'valid') {
+                input?.classList.add('voting-password-valid');
+            }
+
+            if (status === 'invalid') {
+                input?.classList.add('voting-password-invalid');
+            }
+        });
+
+        if (!registerError) {
+            return;
+        }
+
+        registerError.textContent = message;
+        registerError.classList.toggle('is-active', message !== '');
+        registerError.classList.toggle('is-success', status === 'valid');
+    };
+
+    const validateRegisterPassword = (showIncomplete = false) => {
+        if (!registerPassword || !registerPasswordConfirmation) {
+            return false;
+        }
+
+        if (!registerPassword.value && !registerPasswordConfirmation.value) {
+            setRegisterPasswordFeedback(showIncomplete ? 'invalid' : '', showIncomplete ? 'Password dan confirm password wajib diisi.' : '');
+
+            return false;
+        }
+
+        if (registerPassword.value.length > 0 && registerPassword.value.length < 8) {
+            setRegisterPasswordFeedback('invalid', 'Password minimal 8 karakter.');
+
+            return false;
+        }
+
+        if (!registerPasswordConfirmation.value) {
+            setRegisterPasswordFeedback(showIncomplete ? 'invalid' : '', showIncomplete ? 'Password dan confirm password wajib diisi.' : '');
+
+            return false;
+        }
+
+        if (registerPassword.value !== registerPasswordConfirmation.value) {
+            setRegisterPasswordFeedback('invalid', 'Password tidak sama.');
+
+            return false;
+        }
+
+        setRegisterPasswordFeedback('valid', 'Password sama.');
+
+        return true;
+    };
+
+    [registerPassword, registerPasswordConfirmation].forEach((input) => {
+        input?.addEventListener('input', () => {
+            validateRegisterPassword();
+        });
+    });
+
+    registerForm?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setOtpMessage('', '');
+
+        const requiredInputs = [...registerForm.querySelectorAll('[data-register-step="details"] input[required]')];
+        const hasEmptyInput = requiredInputs.some((input) => input.value.trim() === '');
+
+        if (hasEmptyInput) {
+            setRegisterMessage('error', 'Lengkapi semua data register terlebih dahulu.');
+
+            return;
+        }
+
+        if (!validateRegisterPassword(true)) {
+            return;
+        }
+
+        if (registerSubmitButton) {
+            registerSubmitButton.disabled = true;
+            registerSubmitButton.textContent = 'Mengirim OTP...';
+        }
+
+        try {
+            const data = await postForm(registerForm.action, new FormData(registerForm));
+
+            registerDetailStep?.classList.remove('is-active');
+            registerOtpStep?.classList.add('is-active');
+            otpInputs.forEach((input) => {
+                input.value = '';
+            });
+            setOtpMessage('success', data.message ?? 'Kode OTP sudah dikirim ke WhatsApp Anda.');
+            otpInputs[0]?.focus();
+            startOtpResendCooldown(data.cooldown_seconds ?? 60);
+        } catch (error) {
+            setRegisterMessage('error', error.message);
+        } finally {
+            if (registerSubmitButton) {
+                registerSubmitButton.disabled = false;
+                registerSubmitButton.textContent = 'Register';
+            }
+        }
+    });
+
+    const currentOtp = () => otpInputs.map((input) => input.value).join('');
+
+    const verifyOtpIfComplete = async () => {
+        const otp = currentOtp();
+
+        if (isVerifyingOtp || otp.length !== otpInputs.length) {
+            return;
+        }
+
+        isVerifyingOtp = true;
+        setOtpMessage('', '');
+        otpInputs.forEach((input) => {
+            input.disabled = true;
+        });
+
+        const formData = new FormData();
+        formData.append('_token', csrfToken);
+        formData.append('otp', otp);
+
+        try {
+            const data = await postForm(registerForm.dataset.registerVerifyUrl, formData);
+
+            setOtpMessage('success', data.message ?? 'Registrasi berhasil.');
+            window.location.href = data.redirect_url;
+        } catch (error) {
+            setOtpMessage('error', error.message);
+            otpInputs.forEach((input) => {
+                input.value = '';
+            });
+            otpInputs[0]?.focus();
+        } finally {
+            otpInputs.forEach((input) => {
+                input.disabled = false;
+            });
+            isVerifyingOtp = false;
+        }
+    };
+
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            input.value = input.value.replace(/\D/g, '').slice(0, 1);
+
+            if (input.value && otpInputs[index + 1]) {
+                otpInputs[index + 1].focus();
+            }
+
+            verifyOtpIfComplete();
+        });
+
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Backspace' && !input.value && otpInputs[index - 1]) {
+                otpInputs[index - 1].focus();
+            }
+        });
+
+        input.addEventListener('paste', (event) => {
+            const digits = event.clipboardData.getData('text').replace(/\D/g, '').slice(0, otpInputs.length);
+
+            if (!digits) {
+                return;
+            }
+
+            event.preventDefault();
+
+            digits.split('').forEach((digit, digitIndex) => {
+                if (otpInputs[digitIndex]) {
+                    otpInputs[digitIndex].value = digit;
+                }
+            });
+
+            otpInputs[Math.min(digits.length, otpInputs.length) - 1]?.focus();
+            verifyOtpIfComplete();
+        });
+    });
+
+    otpResendButton?.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('_token', csrfToken);
+
+        otpResendButton.disabled = true;
+        otpResendButton.textContent = 'Mengirim...';
+
+        try {
+            const data = await postForm(registerForm.dataset.registerResendUrl, formData);
+
+            setOtpMessage('success', data.message ?? 'Kode OTP baru sudah dikirim ke WhatsApp Anda.');
+            startOtpResendCooldown(data.cooldown_seconds ?? 60);
+        } catch (error) {
+            setOtpMessage('error', error.message);
+            otpResendButton.disabled = false;
+            otpResendButton.textContent = 'Resend';
+        }
+
+        otpInputs.forEach((input) => {
+            input.value = '';
+        });
+        otpInputs[0]?.focus();
+    });
+
     document.querySelectorAll('[data-auth-form-target]').forEach((tab) => {
         tab.addEventListener('click', () => {
             const target = tab.dataset.authFormTarget;

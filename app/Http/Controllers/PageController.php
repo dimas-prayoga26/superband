@@ -29,7 +29,9 @@ class PageController extends Controller
             return redirect()->route('voting.login');
         }
 
-        abort_unless($request->user()->can('access voting'), 403);
+        if (! $request->user()->can('access voting')) {
+            return redirect()->route('voting.login');
+        }
 
         return view('voting');
     }
