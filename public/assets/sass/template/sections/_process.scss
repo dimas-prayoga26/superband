@@ -1,4 +1,6 @@
 .process-card {
+    padding-right: 34px;
+
     .process-card-number {
         font-size: 14px;
         font-weight: 600;
@@ -22,10 +24,9 @@
         }
     }
     .process-card-title {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 600;
         color: $smoke-color;
-        letter-spacing: -0.48px;
         margin-top: 45px;
     }
     .process-card-text {
@@ -37,12 +38,59 @@
         margin-bottom: -0.3em;
     }
 }
+
+.process-row {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.process-row > [class*='col-']:last-child {
+    .process-card {
+        padding-right: 0;
+    }
+
+    .process-card-number {
+        width: 72%;
+    }
+}
+
 @include lg {
     .process-card .process-card-text {
         font-size: 16px;
     }
 }
+
+@media (min-width: 1200px) {
+    .process-row {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 88px;
+            left: 0;
+            right: 7%;
+            height: 2px;
+            background: $smoke-color;
+        }
+    }
+
+    .process-row .process-card-number {
+        border-bottom: 0;
+    }
+}
+
 @include md {
+    .process-card {
+        padding-right: 24px;
+    }
+
+    .process-row > [class*='col-']:last-child {
+        .process-card-number {
+            width: 100%;
+        }
+    }
+
     .process-card .process-card-text {
         max-width: none;
         font-size: 18px;

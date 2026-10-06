@@ -637,64 +637,53 @@
     Feature Area
     ==============================-->
     <div id="step" class="feature-area-1 bg-black space">
-        <div class="container">
+        <div class="container-fluid px-4">
             <div class="title-area text-center">
-                <h2 class="sec-title text-smoke">Five Step Process</h2>
+                <h2 class="sec-title text-smoke">Alur Kompetisi</h2>
             </div>
-            <div class="row gx-0 gy-40">
-                <div class="col-lg-4">
+            <div class="row gx-0 gy-40 process-row">
+                <div class="col-xl-3 col-md-6">
                     <div class="process-card">
                         <div class="process-card-number">
                             Step 1
                         </div>
                         <h4 class="process-card-title text-uppercase">
-                            pendaftaran online 
+                            pendaftaran online
                         </h4>
-                        <p class="process-card-text"> Peserta mengirimkan video secara online melalui website sesuai kategori yang dipilih</p>
+                        <p class="process-card-text">Peserta mendaftarkan diri dan mengirimkan video secara online sesuai kategori yang dipilih melalui website yang sudah disediakan oleh panitia</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-xl-3 col-md-6">
                     <div class="process-card">
                         <div class="process-card-number">
                             Step 2
                         </div>
                         <h4 class="process-card-title text-uppercase">
-                            tahap seleksi
+                            tahap audisi
                         </h4>
-                        <p class="process-card-text">Dipilih 15 terbaik dari masing-masing kategori untuk lanjut ke tahap audisi</p>
+                        <p class="process-card-text">Dipilih 10 talenta terbaik dari masing-masing kategori untuk dibentuk menjadi 10 grup band</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-xl-3 col-md-6">
                     <div class="process-card">
                         <div class="process-card-number">
                             Step 3
                         </div>
                         <h4 class="process-card-title text-uppercase">
-                            audisi offline
+                            coaching clinic
                         </h4>
-                        <p class="process-card-text">Penampilan secara offline di 2 titik sekolahan sekaligus penentuan 10 terbaik masing-masing kategori</p>
+                        <p class="process-card-text">1 bulan pembinaan bersama mentor</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-xl-3 col-md-6">
                     <div class="process-card">
                         <div class="process-card-number">
                             Step 4
                         </div>
                         <h4 class="process-card-title text-uppercase">
-                            coaching clinic
+                            babak penyisihan & grand final
                         </h4>
-                        <p class="process-card-text">1 bulan pembinaan bersama mentor, akan dibentuk menjadi 10 band</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="process-card">
-                        <div class="process-card-number">
-                            Step 5
-                        </div>
-                        <h4 class="process-card-title text-uppercase">
-                            grand final
-                        </h4>
-                        <p class="process-card-text">Penampilan 10 band dari talenta terbaik dan pengumuman pemenang</p>
+                        <p class="process-card-text">Penampilan 10 band dari talenta terbaik dan pengumuman pemenang di Lippo Mall Jember</p>
                     </div>
                 </div>
             </div>

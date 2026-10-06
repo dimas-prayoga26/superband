@@ -13456,6 +13456,9 @@ blockquote p {
 }
 
 /*------------------- 4.00. Process -------------------*/
+.process-card {
+  padding-right: 34px;
+}
 .process-card .process-card-number {
   font-size: 14px;
   font-weight: 600;
@@ -13479,10 +13482,9 @@ blockquote p {
   border: 4px solid var(--title-color);
 }
 .process-card .process-card-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--smoke-color);
-  letter-spacing: -0.48px;
   margin-top: 45px;
 }
 .process-card .process-card-text {
@@ -13494,14 +13496,47 @@ blockquote p {
   margin-bottom: -0.3em;
 }
 
+.process-row {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.process-row > [class*=col-]:last-child .process-card-number {
+  width: 72%;
+}
+.process-row > [class*=col-]:last-child .process-card {
+  padding-right: 0;
+}
+
 /* Large devices */
 @media (max-width: 1199px) {
   .process-card .process-card-text {
     font-size: 16px;
   }
 }
+@media (min-width: 1200px) {
+  .process-row:before {
+    content: "";
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 7%;
+    height: 2px;
+    background: var(--smoke-color);
+  }
+  .process-row .process-card-number {
+    border-bottom: 0;
+  }
+}
 /* Medium devices */
 @media (max-width: 991px) {
+  .process-card {
+    padding-right: 24px;
+  }
+  .process-row > [class*=col-]:last-child .process-card-number {
+    width: 100%;
+  }
   .process-card .process-card-text {
     max-width: none;
     font-size: 18px;
