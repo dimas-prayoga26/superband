@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/imageRevealHover.css">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=anchor-offset-1">
+    <link rel="stylesheet" href="assets/css/style.css?v=process-timeline-2">
     <style>
         .register-header-row {
             display: grid;
