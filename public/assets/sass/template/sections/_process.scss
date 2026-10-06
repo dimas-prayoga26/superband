@@ -1,6 +1,4 @@
 .process-card {
-    padding-right: 34px;
-
     .process-card-number {
         font-size: 14px;
         font-weight: 600;
@@ -28,6 +26,7 @@
         font-weight: 600;
         color: $smoke-color;
         margin-top: 45px;
+        padding-right: 34px;
     }
     .process-card-text {
         font-size: 18px;
@@ -36,6 +35,7 @@
         color: $smoke-color;
         max-width: 330px;
         margin-bottom: -0.3em;
+        padding-right: 34px;
     }
 }
 
@@ -43,56 +43,48 @@
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
 }
 
 .process-row > [class*='col-']:last-child {
-    .process-card {
-        padding-right: 0;
-    }
-
     .process-card-number {
         width: 72%;
+    }
+
+    .process-card-title,
+    .process-card-text {
+        padding-right: 0;
     }
 }
 
 @include lg {
-    .process-card .process-card-text {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .process-row {
-        &:before {
-            content: '';
-            position: absolute;
-            top: 88px;
-            left: 0;
-            right: 7%;
-            height: 2px;
-            background: $smoke-color;
+    .process-card {
+        .process-card-title,
+        .process-card-text {
+            padding-right: 24px;
         }
-    }
 
-    .process-row .process-card-number {
-        border-bottom: 0;
+        .process-card-text {
+            font-size: 16px;
+        }
     }
 }
 
 @include md {
-    .process-card {
-        padding-right: 24px;
-    }
-
     .process-row > [class*='col-']:last-child {
         .process-card-number {
             width: 100%;
         }
     }
 
-    .process-card .process-card-text {
-        max-width: none;
-        font-size: 18px;
+    .process-card {
+        .process-card-title,
+        .process-card-text {
+            padding-right: 24px;
+        }
+
+        .process-card-text {
+            max-width: none;
+            font-size: 18px;
+        }
     }
 }
